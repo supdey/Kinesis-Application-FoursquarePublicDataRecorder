@@ -3,6 +3,9 @@
   <groupId>com.alexgrace.finalyearproject.kinesisclient</groupId>
   <artifactId>KinesisClient</artifactId>
   <version>0.0.1-SNAPSHOT</version>
+  <name>Kinesis-Application-FoursquarePublicDataRecorder</name>
+  <description>University Final Year Project: Kinesis Application to record public Foursquare/Swarm Data</description>
+
    <properties>
   		<jdk.version>1.6</jdk.version>
 		<!-- Logging -->
@@ -25,7 +28,7 @@
 					<target>${jdk.version}</target>
 				</configuration>
 			</plugin>
- 
+
 			<!-- Make this jar executable -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -42,7 +45,7 @@
 				  </archive>
 				</configuration>
 			</plugin>
-			
+
 			<!-- Copy project dependency -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -63,7 +66,7 @@
 				  </execution>
 				</executions>
 			</plugin>
- 
+
 		</plugins>
 	</build>
   <dependencies>
