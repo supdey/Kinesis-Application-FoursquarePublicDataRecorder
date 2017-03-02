@@ -211,7 +211,7 @@ public class KinesisRecordProcessor implements IRecordProcessor {
                            matcher = pattern.matcher(tempurl);
                            if (matcher.find()) {
                                LOG.info("Got here3");
-                               url = matcher.group(0);
+                               url = tempurl;
                            }
                        }
                    }
