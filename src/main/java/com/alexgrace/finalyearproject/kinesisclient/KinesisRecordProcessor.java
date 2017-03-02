@@ -96,7 +96,6 @@ public class KinesisRecordProcessor implements IRecordProcessor {
    private int fsqVersion;
 
    //Regex
-   private String regexCheckSwarm = "\\bswarmapp.com\\b";
    private String regex = "[^\\/]+$";
    private String regexTester = "^[a-zA-Z0-9]{2,}$";
 
@@ -168,7 +167,7 @@ public class KinesisRecordProcessor implements IRecordProcessor {
    private void processRecordsWithRetries(List<Record> records) {
        for (Record record : records) {
            boolean NY, LDN, processedSuccessfully = false;
-           String data, tempurl, tempId, foursquaredata, url = null, shortId = null;
+           String data, tempId, foursquaredata, url = null, shortId = null;
            double venueLat, venueLng;
            JsonNode node = null, entities = null, urls = null;
 
@@ -206,19 +205,12 @@ public class KinesisRecordProcessor implements IRecordProcessor {
                        LOG.info("Got here1");
                        for (JsonNode objNode : urls) {
                            LOG.info("Got here2");
-                           tempurl = objNode.findValue("expanded_url").textValue();
-                           LOG.info("Tempurl: " + tempurl);
-                           pattern = Pattern.compile(regexCheckSwarm);
-                           matcher = pattern.matcher(tempurl);
-                           if (matcher.find()) {
-                               LOG.info("Got here3");
-                               url = tempurl;
-                           }
+                           url = objNode.get("expanded_url").asText();
                        }
                    }
 
 
-                   LOG.info("URL2: " + url);
+                   LOG.info("URL: " + url);
 
                    // Get checkinID
             	   if (url != null) {
