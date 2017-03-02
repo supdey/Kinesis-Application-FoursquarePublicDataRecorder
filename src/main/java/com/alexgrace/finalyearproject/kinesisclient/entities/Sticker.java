@@ -14,6 +14,7 @@ public class Sticker {
     public Image getImage() {
         return image;
     }
+    public Effects getEffects() {return effects;}
     public String getStickerType() {
         return stickerType;
     }
@@ -42,6 +43,7 @@ public class Sticker {
     private String id;
     private String name;
     private Image image;
+    private Effects effects;
     private String stickerType;
     private FsqGroup group;
     private PickerPosition pickerPosition;

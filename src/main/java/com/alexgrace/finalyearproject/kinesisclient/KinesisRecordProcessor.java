@@ -178,39 +178,21 @@ public class KinesisRecordProcessor implements IRecordProcessor {
                    // Decode data to string
                    data = decoder.decode(record.getData()).toString();
 
-                   LOG.info("First: " + data);
-
                    // Find URL Array in Twitter JSON
                    try {
                        node = mapper.readTree(data);
-                       LOG.info("Node: " + node);
-                   } catch (Exception e) {
-                       LOG.error("Error1");
-                   }
-                   try {
                        entities = node.findValue("entities");
-                       LOG.info("Entities: " + entities);
-                   } catch (Exception e) {
-                       LOG.error("Error1");
-                   }
-                   try {
                        urls = entities.findValue("urls");
-                       LOG.info("Urls: " + urls);
                    } catch (Exception e) {
-                       LOG.error("Error1");
+                       LOG.error("Error reading node tree");
                    }
 
                    // Find foursquare url
                    if (urls.isArray()) {
-                       LOG.info("Got here1");
                        for (JsonNode objNode : urls) {
-                           LOG.info("Got here2");
                            url = objNode.get("expanded_url").asText();
                        }
                    }
-
-
-                   LOG.info("URL: " + url);
 
                    // Get checkinID
             	   if (url != null) {
@@ -387,11 +369,14 @@ public class KinesisRecordProcessor implements IRecordProcessor {
                                            item.getId() + "');");                                              // photo
                                }
                            }
+                           LOG.info("Success: ShortID: " + shortId + " is in London or New York, added to database");
 
                        } catch (Exception e) {
                            e.printStackTrace();
                            LOG.error("Error: Entering Data Into Database");
                        }
+                   } else {
+                       LOG.info("Success: ShortID: " + shortId + " is not in London or New York, not added to database");
                    }
 
                    /*
