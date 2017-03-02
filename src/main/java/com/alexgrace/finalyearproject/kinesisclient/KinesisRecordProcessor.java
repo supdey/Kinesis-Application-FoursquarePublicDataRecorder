@@ -206,13 +206,13 @@ public class KinesisRecordProcessor implements IRecordProcessor {
                        LOG.info("Got here1");
                        for (JsonNode objNode : urls) {
                            LOG.info("Got here2");
-                           tempurl = objNode.findValue("expanded_url").textValue();
-                           pattern = Pattern.compile(regexCheckSwarm);
+                           url = objNode.findValue("expanded_url").textValue();
+                           /*pattern = Pattern.compile(regexCheckSwarm);
                            matcher = pattern.matcher(tempurl);
                            if (matcher.find()) {
                                LOG.info("Got here3");
                                url = tempurl;
-                           }
+                           }*/
                        }
                    }
 
