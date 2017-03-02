@@ -170,6 +170,7 @@ public class KinesisRecordProcessor implements IRecordProcessor {
            boolean NY, LDN, processedSuccessfully = false;
            String data, tempurl, tempId, foursquaredata, url = null, shortId = null;
            double venueLat, venueLng;
+           JsonNode node = null, entities = null, urls = null;
 
            for (int i = 0; i < NUM_RETRIES; i++) {
                try {
@@ -178,24 +179,38 @@ public class KinesisRecordProcessor implements IRecordProcessor {
                    // Decode data to string
                    data = decoder.decode(record.getData()).toString();
 
-                   LOG.info(data);
+                   LOG.info("First: " + data);
 
                    // Find URL Array in Twitter JSON
-                   JsonNode node = mapper.readTree(data);
-                   LOG.info("Node: ");
-                   LOG.info(node);
-                   JsonNode entities = node.findValue("entities");
-                   LOG.info("entities: " + entities);
-                   JsonNode urls = entities.findValue("urls");
-                   LOG.info("urls: " + urls);
+                   try {
+                       node = mapper.readTree(data);
+                       LOG.info("Node: " + node);
+                   } catch (Exception e) {
+                       LOG.error("Error1");
+                   }
+                   try {
+                       entities = node.findValue("entities");
+                       LOG.info("Entities: " + entities);
+                   } catch (Exception e) {
+                       LOG.error("Error1");
+                   }
+                   try {
+                       urls = entities.findValue("urls");
+                       LOG.info("Urls: " + urls);
+                   } catch (Exception e) {
+                       LOG.error("Error1");
+                   }
 
                    // Find foursquare url
                    if (urls.isArray()) {
+                       LOG.info("Got here1");
                        for (JsonNode objNode : urls) {
+                           LOG.info("Got here2");
                            tempurl = objNode.findValue("expanded_url").textValue();
                            pattern = Pattern.compile(regexCheckSwarm);
                            matcher = pattern.matcher(tempurl);
                            if (matcher.find()) {
+                               LOG.info("Got here3");
                                url = matcher.group(0);
                            }
                        }
@@ -413,7 +428,7 @@ public class KinesisRecordProcessor implements IRecordProcessor {
            }
 
            if (!processedSuccessfully) {
-               LOG.error("Couldn't process record " + record + ". Skipping the record.");
+               LOG.error("Couldn't process record " + record + ". Skipping the recordX.");
            }
        }
    }
