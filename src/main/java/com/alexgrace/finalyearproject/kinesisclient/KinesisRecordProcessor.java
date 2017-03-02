@@ -185,11 +185,13 @@ public class KinesisRecordProcessor implements IRecordProcessor {
                    LOG.info("Node: ");
                    LOG.info(node);
                    JsonNode entities = node.findValue("entities");
+                   LOG.info("entities: " + entities);
                    JsonNode urls = entities.findValue("urls");
+                   LOG.info("urls: " + urls);
 
                    // Find foursquare url
                    if (urls.isArray()) {
-                       for (final JsonNode objNode : urls) {
+                       for (JsonNode objNode : urls) {
                            tempurl = objNode.findValue("expanded_url").textValue();
                            pattern = Pattern.compile(regexCheckSwarm);
                            matcher = pattern.matcher(tempurl);
@@ -198,6 +200,9 @@ public class KinesisRecordProcessor implements IRecordProcessor {
                            }
                        }
                    }
+
+
+                   LOG.info("URL: " + url);
 
                    // Get checkinID
             	   if (url != null) {
@@ -208,13 +213,13 @@ public class KinesisRecordProcessor implements IRecordProcessor {
                            if (tempId.matches(regexTester)){
                                shortId = tempId;
                            } else {
-                               LOG.error("Couldn't process record " + record + ". Skipping the record.");
+                               LOG.error("Couldn't process record " + record + ". Skipping the record1.");
                            }
                        } else {
-                           LOG.error("Couldn't process record " + record + ". Skipping the record.");
+                           LOG.error("Couldn't process record " + record + ". Skipping the record2.");
                        }
                    } else {
-                       LOG.error("Couldn't process record " + record + ". Skipping the record.");
+                       LOG.error("Couldn't process record " + record + ". Skipping the record3.");
                    }
 
                    LOG.info("ShortID: " + shortId);
