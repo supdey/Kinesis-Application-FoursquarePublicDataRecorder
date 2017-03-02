@@ -178,8 +178,12 @@ public class KinesisRecordProcessor implements IRecordProcessor {
                    // Decode data to string
                    data = decoder.decode(record.getData()).toString();
 
+                   LOG.info(data);
+
                    // Find URL Array in Twitter JSON
                    JsonNode node = mapper.readTree(data);
+                   LOG.info("Node: ");
+                   LOG.info(node);
                    JsonNode entities = node.findValue("entities");
                    JsonNode urls = entities.findValue("urls");
 
