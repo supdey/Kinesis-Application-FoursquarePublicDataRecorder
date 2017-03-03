@@ -11,6 +11,15 @@ public class Layout {
     public LayoutDetails getTop() {
         return top;
     }
+    public LayoutDetails getLeft() {
+        return left;
+    }
+    public LayoutDetails getRight() {
+        return right;
+    }
+    public LayoutDetails getBottom() {
+        return bottom;
+    }
     public LayoutDetails getBottomLeft() {
         return bottomLeft;
     }
@@ -20,6 +29,9 @@ public class Layout {
 
     private String name;
     private LayoutDetails top;
+    private LayoutDetails left;
+    private LayoutDetails right;
+    private LayoutDetails bottom;
     private LayoutDetails bottomLeft;
     private LayoutDetails bottomRight;
 }

@@ -217,8 +217,8 @@ public class KinesisRecordProcessor implements IRecordProcessor {
                    response = resource.accept("application/json").get(ClientResponse.class);
 
                    if (response.getStatus() != 200) {
-                       LOG.error("Failed with HTTP Error code: " + response.getStatus());
-                       LOG.error("Error: "+response.getEntity(String.class));
+                       LOG.error("ShortID: " + shortId + ", Failed with HTTP Error code: " + response.getStatus());
+                       break;
                    }
 
                    foursquaredata = response.getEntity(String.class);
