@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9f992b1-0687-4171-b755-bf33b5f74445" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Sticker.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Sticker.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessor.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessor.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -30,8 +29,8 @@
       <file leaf-file-name="KinesisApplication.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="340">
-              <caret line="162" column="0" lean-forward="true" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
+            <state relative-caret-position="250">
+              <caret line="156" column="0" lean-forward="true" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
               <folding>
                 <element signature="e#0#9069#0" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -40,67 +39,43 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Sticker.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Sticker.java">
+      <file leaf-file-name="KinesisRecordProcessor.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="22" lean-forward="false" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+            <state relative-caret-position="159">
+              <caret line="415" column="65" lean-forward="false" selection-start-line="415" selection-start-column="65" selection-end-line="415" selection-end-column="65" />
               <folding>
-                <element signature="e#0#1331#0" expanded="true" />
-                <element signature="e#934#935#0" expanded="true" />
-                <element signature="e#968#969#0" expanded="true" />
+                <element signature="e#0#27691#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <marker date="1488507587000" expanded="true" signature="9691:9802" ph="select id fr... users" />
+                <marker date="1488507587000" expanded="true" signature="9915:10920" ph="INSERT INTO finalyearproject.users... " />
+                <marker date="1488507587000" expanded="true" signature="11246:11359" ph="select id fr... venues" />
+                <marker date="1488507587000" expanded="true" signature="11628:15907" ph="INSERT INTO finalyearproject.venues... " />
+                <marker date="1488507587000" expanded="true" signature="16263:16367" ph="select id fr... checkins" />
+                <marker date="1488507587000" expanded="true" signature="16480:17373" ph="INSERT INTO finalyearproject.checkins... " />
+                <marker date="1488507587000" expanded="true" signature="17912:17988" ph="select id fr... categories" />
+                <marker date="1488507587000" expanded="true" signature="18109:18719" ph="INSERT INTO finalyearproject.categories... " />
+                <marker date="1488507587000" expanded="true" signature="18835:19207" ph="INSERT INTO finalyearproject.venuecategories... " />
+                <marker date="1488507587000" expanded="true" signature="19854:19925" ph="select id fr... users" />
+                <marker date="1488507587000" expanded="true" signature="20054:20823" ph="INSERT INTO finalyearproject.users... " />
+                <marker date="1488507587000" expanded="true" signature="20946:21167" ph="INSERT INTO finalyearproject.with... " />
+                <marker date="1488507587000" expanded="true" signature="21864:21936" ph="select id fr... photos" />
+                <marker date="1488507587000" expanded="true" signature="22065:22370" ph="INSERT INTO finalyearproject.photos... " />
+                <marker date="1488507587000" expanded="true" signature="22498:22731" ph="INSERT INTO finalyearproject.checkinphotos... " />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Categories.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Categories.java">
+      <file leaf-file-name="Sticker.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Sticker.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Checkin.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Checkin.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="6" column="15" lean-forward="false" selection-start-line="6" selection-start-column="0" selection-end-line="7" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KinesisRecordProcessor.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3195">
-              <caret line="213" column="0" lean-forward="false" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
+            <state relative-caret-position="150">
+              <caret line="12" column="27" lean-forward="true" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
               <folding>
-                <element signature="e#0#27641#0" expanded="true" />
-                <element signature="imports" expanded="true" />
-                <element signature="e#27504#27505#0" expanded="true" />
-                <element signature="e#27550#27551#0" expanded="true" />
-                <element signature="e#27592#27593#0" expanded="true" />
-                <element signature="e#27636#27637#0" expanded="true" />
-                <marker date="1488504625000" expanded="true" signature="9641:9752" ph="select id fr... users" />
-                <marker date="1488504625000" expanded="true" signature="9865:10870" ph="INSERT INTO finalyearproject.users... " />
-                <marker date="1488504625000" expanded="true" signature="11196:11309" ph="select id fr... venues" />
-                <marker date="1488504625000" expanded="true" signature="11578:15857" ph="INSERT INTO finalyearproject.venues... " />
-                <marker date="1488504625000" expanded="true" signature="16213:16317" ph="select id fr... checkins" />
-                <marker date="1488504625000" expanded="true" signature="16430:17323" ph="INSERT INTO finalyearproject.checkins... " />
-                <marker date="1488504625000" expanded="true" signature="17862:17938" ph="select id fr... categories" />
-                <marker date="1488504625000" expanded="true" signature="18059:18669" ph="INSERT INTO finalyearproject.categories... " />
-                <marker date="1488504625000" expanded="true" signature="18785:19157" ph="INSERT INTO finalyearproject.venuecategories... " />
-                <marker date="1488504625000" expanded="true" signature="19804:19875" ph="select id fr... users" />
-                <marker date="1488504625000" expanded="true" signature="20004:20773" ph="INSERT INTO finalyearproject.users... " />
-                <marker date="1488504625000" expanded="true" signature="20896:21117" ph="INSERT INTO finalyearproject.with... " />
-                <marker date="1488504625000" expanded="true" signature="21814:21886" ph="select id fr... photos" />
-                <marker date="1488504625000" expanded="true" signature="22015:22320" ph="INSERT INTO finalyearproject.photos... " />
-                <marker date="1488504625000" expanded="true" signature="22448:22681" ph="INSERT INTO finalyearproject.checkinphotos... " />
+                <element signature="e#0#1331#0" expanded="true" />
+                <element signature="e#278#279#0" expanded="true" />
+                <element signature="e#305#306#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -141,9 +116,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1200">
               <caret line="80" column="55" lean-forward="false" selection-start-line="80" selection-start-column="45" selection-end-line="80" selection-end-column="55" />
-              <folding>
-                <element signature="e#0#2193#0" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -153,10 +126,7 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="735">
               <caret line="49" column="4" lean-forward="false" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
-              <folding>
-                <element signature="e#0#1895#0" expanded="true" />
-                <element signature="imports" expanded="true" />
-              </folding>
+              <folding />
             </state>
           </provider>
         </entry>
@@ -184,8 +154,10 @@
       <find>i</find>
       <find>amazon</find>
       <find>url</find>
-      <find>statement</find>
       <find>Initaliz</find>
+      <find>ShortID:</find>
+      <find>connect</find>
+      <find>statement</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -240,8 +212,8 @@
         <option value="$PROJECT_DIR$/KinesisClient.properties" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Effects.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Sticker.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessor.java" />
       </list>
     </option>
   </component>
@@ -878,12 +850,12 @@
       <option name="presentableId" value="Default" />
       <updated>1488226146666</updated>
       <workItem from="1488226152845" duration="39999000" />
-      <workItem from="1488505710632" duration="106000" />
+      <workItem from="1488505710632" duration="1857000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="40105000" />
+    <option name="totallyTimeSpent" value="41856000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -974,9 +946,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1200">
           <caret line="80" column="55" lean-forward="false" selection-start-line="80" selection-start-column="45" selection-end-line="80" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#2193#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -984,10 +954,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="735">
           <caret line="49" column="4" lean-forward="false" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#1895#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1314,9 +1281,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1200">
           <caret line="80" column="55" lean-forward="false" selection-start-line="80" selection-start-column="45" selection-end-line="80" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#2193#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1334,10 +1299,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="735">
           <caret line="49" column="4" lean-forward="false" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#1895#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1367,36 +1329,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3195">
-          <caret line="213" column="0" lean-forward="false" selection-start-line="213" selection-start-column="0" selection-end-line="213" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#27641#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#27504#27505#0" expanded="true" />
-            <element signature="e#27550#27551#0" expanded="true" />
-            <element signature="e#27592#27593#0" expanded="true" />
-            <element signature="e#27636#27637#0" expanded="true" />
-            <marker date="1488504625000" expanded="true" signature="9641:9752" ph="select id fr... users" />
-            <marker date="1488504625000" expanded="true" signature="9865:10870" ph="INSERT INTO finalyearproject.users... " />
-            <marker date="1488504625000" expanded="true" signature="11196:11309" ph="select id fr... venues" />
-            <marker date="1488504625000" expanded="true" signature="11578:15857" ph="INSERT INTO finalyearproject.venues... " />
-            <marker date="1488504625000" expanded="true" signature="16213:16317" ph="select id fr... checkins" />
-            <marker date="1488504625000" expanded="true" signature="16430:17323" ph="INSERT INTO finalyearproject.checkins... " />
-            <marker date="1488504625000" expanded="true" signature="17862:17938" ph="select id fr... categories" />
-            <marker date="1488504625000" expanded="true" signature="18059:18669" ph="INSERT INTO finalyearproject.categories... " />
-            <marker date="1488504625000" expanded="true" signature="18785:19157" ph="INSERT INTO finalyearproject.venuecategories... " />
-            <marker date="1488504625000" expanded="true" signature="19804:19875" ph="select id fr... users" />
-            <marker date="1488504625000" expanded="true" signature="20004:20773" ph="INSERT INTO finalyearproject.users... " />
-            <marker date="1488504625000" expanded="true" signature="20896:21117" ph="INSERT INTO finalyearproject.with... " />
-            <marker date="1488504625000" expanded="true" signature="21814:21886" ph="select id fr... photos" />
-            <marker date="1488504625000" expanded="true" signature="22015:22320" ph="INSERT INTO finalyearproject.photos... " />
-            <marker date="1488504625000" expanded="true" signature="22448:22681" ph="INSERT INTO finalyearproject.checkinphotos... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/KinesisClient.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1410,17 +1342,6 @@
         <state relative-caret-position="90">
           <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="162" column="0" lean-forward="true" selection-start-line="162" selection-start-column="0" selection-end-line="162" selection-end-column="0" />
-          <folding>
-            <element signature="e#0#9069#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1440,14 +1361,51 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="156" column="0" lean-forward="true" selection-start-line="156" selection-start-column="0" selection-end-line="156" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#9069#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Sticker.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="22" lean-forward="false" selection-start-line="6" selection-start-column="22" selection-end-line="6" selection-end-column="22" />
+        <state relative-caret-position="150">
+          <caret line="12" column="27" lean-forward="true" selection-start-line="12" selection-start-column="27" selection-end-line="12" selection-end-column="27" />
           <folding>
             <element signature="e#0#1331#0" expanded="true" />
-            <element signature="e#934#935#0" expanded="true" />
-            <element signature="e#968#969#0" expanded="true" />
+            <element signature="e#278#279#0" expanded="true" />
+            <element signature="e#305#306#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="415" column="65" lean-forward="false" selection-start-line="415" selection-start-column="65" selection-end-line="415" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#27691#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <marker date="1488507587000" expanded="true" signature="9691:9802" ph="select id fr... users" />
+            <marker date="1488507587000" expanded="true" signature="9915:10920" ph="INSERT INTO finalyearproject.users... " />
+            <marker date="1488507587000" expanded="true" signature="11246:11359" ph="select id fr... venues" />
+            <marker date="1488507587000" expanded="true" signature="11628:15907" ph="INSERT INTO finalyearproject.venues... " />
+            <marker date="1488507587000" expanded="true" signature="16263:16367" ph="select id fr... checkins" />
+            <marker date="1488507587000" expanded="true" signature="16480:17373" ph="INSERT INTO finalyearproject.checkins... " />
+            <marker date="1488507587000" expanded="true" signature="17912:17988" ph="select id fr... categories" />
+            <marker date="1488507587000" expanded="true" signature="18109:18719" ph="INSERT INTO finalyearproject.categories... " />
+            <marker date="1488507587000" expanded="true" signature="18835:19207" ph="INSERT INTO finalyearproject.venuecategories... " />
+            <marker date="1488507587000" expanded="true" signature="19854:19925" ph="select id fr... users" />
+            <marker date="1488507587000" expanded="true" signature="20054:20823" ph="INSERT INTO finalyearproject.users... " />
+            <marker date="1488507587000" expanded="true" signature="20946:21167" ph="INSERT INTO finalyearproject.with... " />
+            <marker date="1488507587000" expanded="true" signature="21864:21936" ph="select id fr... photos" />
+            <marker date="1488507587000" expanded="true" signature="22065:22370" ph="INSERT INTO finalyearproject.photos... " />
+            <marker date="1488507587000" expanded="true" signature="22498:22731" ph="INSERT INTO finalyearproject.checkinphotos... " />
           </folding>
         </state>
       </provider>

@@ -138,6 +138,7 @@ public class KinesisRecordProcessor implements IRecordProcessor {
        try {
            Class.forName("com.mysql.jdbc.Driver");
            connect = DriverManager.getConnection("jdbc:mysql://" + dbHost + ":" + dbPort , dbUser, dbPass);
+           statement = connect.createStatement();
            System.out.println("Connected to database");
        } catch (Exception e) {
            e.printStackTrace();
