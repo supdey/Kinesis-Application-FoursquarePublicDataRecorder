@@ -16,7 +16,9 @@ public class Sticker {
     public Image getImage() {
         return image;
     }
-    public List<Effects> getEffects() {return effects;}
+    public List<Effects> getEffects() {
+        return effects;
+    }
     public String getStickerType() {
         return stickerType;
     }
