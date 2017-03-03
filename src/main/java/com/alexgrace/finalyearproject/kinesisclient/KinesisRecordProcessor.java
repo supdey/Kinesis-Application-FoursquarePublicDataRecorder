@@ -42,6 +42,7 @@ import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.WebResource;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
+import org.apache.commons.lang3.StringUtils;
 
 import com.amazonaws.services.kinesis.clientlibrary.exceptions.InvalidStateException;
 import com.amazonaws.services.kinesis.clientlibrary.exceptions.ShutdownException;
@@ -262,7 +263,7 @@ public class KinesisRecordProcessor implements IRecordProcessor {
                            //---------------------------------------------------
                            resultSet = statement.executeQuery("select id from finalyearproject.venues where id = '" + fsqdata.getResponse().getCheckin().getVenue().getId() + "';");
                            if (!resultSet.next()) {
-                               String joinedAddress = String.join("\n", fsqdata.getResponse().getCheckin().getVenue().getLocation().getFormattedAddress());
+                               String joinedAddress = StringUtils.join(fsqdata.getResponse().getCheckin().getVenue().getLocation().getFormattedAddress(), "\n");
                                statement.executeUpdate("INSERT INTO finalyearproject.venues " +
                                        "VALUES ('" + fsqdata.getResponse().getCheckin().getVenue().getId() + "', '" +                                     // id
                                        characterChecker(fsqdata.getResponse().getCheckin().getVenue().getName()) + "', '" +                               // name
