@@ -5,6 +5,9 @@
 package com.alexgrace.finalyearproject.kinesisclient.entities;
 
 public class Effects {
+    public String getType() {
+        return type;
+    }
     public String getPrefix() {
         return prefix;
     }
@@ -12,6 +15,7 @@ public class Effects {
         return detail;
     }
 
+    private String type;
     private String prefix;
     private Image detail;
 }
