@@ -212,8 +212,6 @@ public class KinesisRecordProcessor implements IRecordProcessor {
                        LOG.error("Couldn't process record " + record + ". Skipping the record3.");
                    }
 
-                   LOG.info("ShortID: " + shortId);
-
                    resource = client.resource("https://api.foursquare.com/v2/checkins/resolve?client_id=" + fsqClientId + "&client_secret=" + fsqClientSecret + "&v=" + fsqVersion + "&shortId=" + shortId);
                    response = resource.accept("application/json").get(ClientResponse.class);
 
