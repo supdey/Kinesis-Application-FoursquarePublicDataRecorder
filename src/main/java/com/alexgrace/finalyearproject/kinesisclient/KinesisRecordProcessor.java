@@ -231,13 +231,16 @@ public class KinesisRecordProcessor implements IRecordProcessor {
                        LOG.error("ShortID: " + shortId + ", Failed with HTTP Error code: " + response.getStatus());
                        break;
                    } else {
+                       LOG.error("ShortID: " + shortId + ", Failed with HTTP Error code: " + response.getStatus());
                        foursquaredata = response.getEntity(String.class);
+                       LOG.error(foursquaredata);
                        try {
                            fsqdata = mapper.readValue(foursquaredata, FoursquareCheckinEntity.class);
                        } catch (JsonGenerationException e) {
                            e.printStackTrace();
                            LOG.error("Error: Foursquare Entity Mapper Catch 1");
                        } catch (JsonMappingException e) {
+                           LOG.error(e);
                            e.printStackTrace();
                            LOG.error("Error: Foursquare Entity Mapper Catch 2");
                        } catch (IOException e) {
