@@ -248,7 +248,16 @@ public class KinesisRecordProcessor implements IRecordProcessor {
                        venueLat = fsqdata.getResponse().getCheckin().getVenue().getLocation().getLat();
                        venueLng = fsqdata.getResponse().getCheckin().getVenue().getLocation().getLng();
 
+
                        for (LocationFilter item : locationFilter) {
+                           LOG.error(venueLat);
+                           LOG.error(venueLng);
+
+                           LOG.error(item.getLat());
+                           LOG.error(item.getLng());
+                           LOG.error(item.getRadius());
+
+
                            locations.add(insideRadius(venueLat, venueLng, item.getLat(), item.getLng(), item.getRadius()));
                        }
 
