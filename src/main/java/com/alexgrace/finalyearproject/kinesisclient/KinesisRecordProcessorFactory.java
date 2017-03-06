@@ -17,35 +17,41 @@
 
 package com.alexgrace.finalyearproject.kinesisclient;
 
+import com.alexgrace.finalyearproject.kinesisclient.OtherEntities.FoursquareClient;
+import com.alexgrace.finalyearproject.kinesisclient.OtherEntities.LocationFilter;
 import com.amazonaws.services.kinesis.clientlibrary.interfaces.IRecordProcessor;
 import com.amazonaws.services.kinesis.clientlibrary.interfaces.IRecordProcessorFactory;
+
+import java.util.List;
 
 /**
 * Used to create new record processors.
 */
 public class KinesisRecordProcessorFactory implements IRecordProcessorFactory {
-   
+
 	private String dbHost;
 	private int dbPort;
     private String dbUser;
     private String dbPass;
-    private String fsqClientId;
-    private String fsqClientSecret;
+    private List<FoursquareClient> foursquareClient;
     private int fsqVersion;
-	
-   /**
+    private List<LocationFilter> locationFilter;
+
+
+
+    /**
     * Constructor.
     */
-   public KinesisRecordProcessorFactory(String dbHost, int dbPort, String dbUser, String dbPass, String fsqClientId, String fsqClientSecret, int fsqVersion) {
+   public KinesisRecordProcessorFactory(String dbHost, int dbPort, String dbUser, String dbPass, List<FoursquareClient> foursquareClient, int fsqVersion, List<LocationFilter> locationFilter) {
        super();
-       
+
        this.dbHost = dbHost;
        this.dbPort = dbPort;
        this.dbUser = dbUser;
        this.dbPass = dbPass;
-       this.fsqClientId = fsqClientId;
-       this.fsqClientSecret = fsqClientSecret;
+       this.foursquareClient = foursquareClient;
        this.fsqVersion = fsqVersion;
+       this.locationFilter = locationFilter;
 
    }
 
@@ -53,7 +59,7 @@ public class KinesisRecordProcessorFactory implements IRecordProcessorFactory {
     * {@inheritDoc}
     */
    public IRecordProcessor createProcessor() {
-       return new KinesisRecordProcessor(dbHost, dbPort, dbUser, dbPass, fsqClientId, fsqClientSecret, fsqVersion);
+       return new KinesisRecordProcessor(dbHost, dbPort, dbUser, dbPass, foursquareClient, fsqVersion, locationFilter);
    }
 
 }

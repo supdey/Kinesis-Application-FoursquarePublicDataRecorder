@@ -20,9 +20,14 @@ package com.alexgrace.finalyearproject.kinesisclient;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.InetAddress;
+import java.util.List;
 import java.util.Properties;
 import java.util.UUID;
 
+import com.alexgrace.finalyearproject.kinesisclient.OtherEntities.ConfigKeys;
+import com.alexgrace.finalyearproject.kinesisclient.OtherEntities.FoursquareClient;
+import com.alexgrace.finalyearproject.kinesisclient.OtherEntities.LocationFilter;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 
@@ -41,6 +46,8 @@ import com.amazonaws.services.kinesis.clientlibrary.lib.worker.Worker;
 */
 public final class KinesisApplication {
 
+   private static ObjectMapper mapper;
+
    private static final String DEFAULT_APP_NAME = "SampleKinesisApplication";
 
    private static final String DEFAULT_KINESIS_ENDPOINT = "eu-west-1";
@@ -53,14 +60,16 @@ public final class KinesisApplication {
    private static String streamName;
    private static String kinesisEndpoint = DEFAULT_KINESIS_ENDPOINT;
    private static InitialPositionInStream initialPositionInStream = DEFAULT_INITIAL_POSITION;
-   
+
    private static String dbHost;
    private static int dbPort = 3306;
    private static String dbUser;
    private static String dbPass;
-   private static String fsqClientId;
-   private static String fsqClientSecret;
+
+   private static List<FoursquareClient> foursquareClient;
    private static int fsqVersion;
+
+   private static List<LocationFilter> locationFilter;
 
    private static KinesisClientLibConfiguration kinesisClientLibConfiguration;
 
@@ -78,24 +87,27 @@ public final class KinesisApplication {
     * @throws IOException Thrown if we can't read properties from the specified properties file
     */
    public static void main(String[] args) throws IOException {
-       String propertiesFile = null;
+       String propertiesFile = null, locationFilters = null, foursquareClientKey = null;
+       mapper = new ObjectMapper();
 
        if (args.length > 1) {
            System.err.println("Usage: java " + KinesisApplication.class.getName() + " <propertiesFile>");
            System.exit(1);
-       } else if (args.length == 1) {
+       } else if (args.length == 3) {
            propertiesFile = args[0];
+           locationFilters= args[1];
+           foursquareClientKey = args[2];
        }
 
-       configure(propertiesFile);
+       configure(propertiesFile, locationFilters, foursquareClientKey);
 
        System.out.println("Starting " + applicationName);
        LOG.info("Running " + applicationName + " to process stream " + streamName);
 
 
-       IRecordProcessorFactory recordProcessorFactory = new KinesisRecordProcessorFactory(dbHost, dbPort, dbUser, dbPass, fsqClientId, fsqClientSecret, fsqVersion);
+       IRecordProcessorFactory recordProcessorFactory = new KinesisRecordProcessorFactory(dbHost, dbPort, dbUser, dbPass, foursquareClient, fsqVersion, locationFilter);
        Worker worker = new Worker(recordProcessorFactory, kinesisClientLibConfiguration);
-       
+
 
 
        int exitCode = 0;
@@ -108,11 +120,19 @@ public final class KinesisApplication {
        System.exit(exitCode);
    }
 
-   private static void configure(String propertiesFile) throws IOException {
+   private static void configure(String propertiesFile, String locationFilters, String foursquareClientKey) throws IOException {
 
 
        if (propertiesFile != null) {
            loadProperties(propertiesFile);
+       }
+       if (locationFilters != null) {
+           locationFilter = mapper.readValue(locationFilters, mapper.getTypeFactory().constructCollectionType(List.class, LocationFilter.class));
+
+       }
+       if (foursquareClientKey != null) {
+           foursquareClient = mapper.readValue(foursquareClientKey, mapper.getTypeFactory().constructCollectionType(List.class, FoursquareClient.class));
+
        }
 
        // ensure the JVM will refresh the cached IP values of AWS resources (e.g. service endpoints).
@@ -172,25 +192,25 @@ public final class KinesisApplication {
            kinesisEndpoint = kinesisEndpointOverride;
        }
        LOG.info("Using Kinesis endpoint " + kinesisEndpoint);
-       
+
        String initialPositionOverride = properties.getProperty(ConfigKeys.INITIAL_POSITION_IN_STREAM_KEY);
        if (initialPositionOverride != null) {
             initialPositionInStream = InitialPositionInStream.valueOf(initialPositionOverride);
        }
        LOG.info("Using initial position " + initialPositionInStream.toString() + " (if a checkpoint is not found).");
-       
+
        String dbHostOverride = properties.getProperty(ConfigKeys.DB_HOST);
        if (dbHostOverride != null) {
            dbHost = dbHostOverride;
        }
        LOG.info("Using database host " + dbHost);
-       
+
        String dbPortOverride = properties.getProperty(ConfigKeys.DB_PORT);
        if (dbPortOverride != null) {
        	try {
        		dbPort = Integer.parseInt(dbPortOverride);
        	} catch(Exception e) {
-       		
+
        	}
        }
        LOG.info("Using database port " + dbPort);
@@ -207,18 +227,6 @@ public final class KinesisApplication {
        }
        LOG.info("Using database password " + dbPass);
 
-       String fsqClientIdOverride = properties.getProperty(ConfigKeys.FSQ_CLIENTID);
-       if (fsqClientIdOverride != null) {
-           fsqClientId = fsqClientIdOverride;
-       }
-       LOG.info("Using Foursquare Client ID " + fsqClientId);
-
-       String fsqClientSecretOverride = properties.getProperty(ConfigKeys.FSQ_CLIENTSECRET);
-       if (fsqClientSecretOverride != null) {
-           fsqClientSecret = fsqClientSecretOverride;
-       }
-       LOG.info("Using Foursquare Client Secret " + fsqClientSecret);
-
        String fsqVersionOverride = properties.getProperty(ConfigKeys.FSQ_VERSION);
        if (fsqVersionOverride != null) {
            try {
@@ -229,6 +237,5 @@ public final class KinesisApplication {
        }
        LOG.info("Using Foursquare API version " + fsqVersion);
    }
-
 }
 
