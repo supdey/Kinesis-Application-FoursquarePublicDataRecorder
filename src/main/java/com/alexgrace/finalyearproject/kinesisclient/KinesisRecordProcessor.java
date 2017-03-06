@@ -168,245 +168,256 @@ public class KinesisRecordProcessor implements IRecordProcessor {
    private void processRecordsWithRetries(List<Record> records) {
        for (Record record : records) {
            boolean processedSuccessfully = false;
+           String data = null;
+           try {
+               data = decoder.decode(record.getData()).toString();
+           } catch (Throwable t) {
+               LOG.warn("Cannot read data " + record, t);
+           }
+
 
            for (int i = 0; i < NUM_RETRIES; i++) {
                try {
-                   String data, tempId, foursquaredata, url = null, shortId = null;
+                   String tempId, foursquaredata, url = null, shortId = null;
                    double venueLat, venueLng;
-                   JsonNode node, entities, urls = null;
+                   JsonNode node, entities, urls;
                    FoursquareCheckinEntity fsqdata = null;
                    List<Boolean> locations = new ArrayList<Boolean>();
 
-                   // Decode data to string
-                   data = decoder.decode(record.getData()).toString();
+                   if (data == null) {
+                       break;
+                   }
 
                    // Find URL Array in Twitter JSON
                    try {
                        node = mapper.readTree(data);
                        entities = node.findValue("entities");
                        urls = entities.findValue("urls");
+                       if (urls.isArray()) {
+                           for (JsonNode objNode : urls) {
+                               url = objNode.get("expanded_url").asText();
+                           }
+                       }
                    } catch (Exception e) {
                        LOG.error("Error reading node tree");
-                   }
-
-                   // Find foursquare url
-                   if (urls.isArray()) {
-                       for (JsonNode objNode : urls) {
-                           url = objNode.get("expanded_url").asText();
-                       }
+                       break;
                    }
 
                    // Get checkinID
-            	   if (url != null) {
-                       pattern = Pattern.compile(regex);
-                       matcher = pattern.matcher(url);
-                       if (matcher.find()) {
-                           tempId = matcher.group(0);
-                           if (tempId.matches(regexTester)){
-                               shortId = tempId;
-                           } else {
-                               LOG.error("Couldn't process record " + record + ". Skipping the record1.");
-                           }
-                       } else {
-                           LOG.error("Couldn't process record " + record + ". Skipping the record2.");
-                       }
-                   } else {
-                       LOG.error("Couldn't process record " + record + ". Skipping the record3.");
+            	   if (url == null) {
+                       LOG.error("URL is null");
+                       break;
                    }
 
+                   pattern = Pattern.compile(regex);
+                   matcher = pattern.matcher(url);
+                   if (matcher.find()) {
+                       tempId = matcher.group(0);
+                       if (tempId.matches(regexTester)){
+                           shortId = tempId;
+                       }
+                   } else {
+                       LOG.error("Regex error: " + url);
+                       break;
+                   }
+                   
                    if (shortId == null) {
-                       LOG.error("ShortID is null");
+                       LOG.error("ShortID is null, url is: " + url);
                        break;
                    }
 
                    resource = client.resource("https://api.foursquare.com/v2/checkins/resolve?client_id=" + foursquareClient.get(clientIndex).getClient_id() + "&client_secret=" + foursquareClient.get(clientIndex).getClient_secret() + "&v=" + fsqVersion + "&shortId=" + shortId);
                    response = resource.accept("application/json").get(ClientResponse.class);
 
-                   if (response.getStatus() == 403) {
+                   while (response.getStatus() == 403) {
                        LOG.info("Response 403: Switching to next Foursquare Client Details");
                        if ((foursquareClient.size() - 1) == clientIndex) {
                            clientIndex = 0;
                        } else {
                            clientIndex = clientIndex + 1;
                        }
-                   } else if (response.getStatus() != 200) {
+                       resource = client.resource("https://api.foursquare.com/v2/checkins/resolve?client_id=" + foursquareClient.get(clientIndex).getClient_id() + "&client_secret=" + foursquareClient.get(clientIndex).getClient_secret() + "&v=" + fsqVersion + "&shortId=" + shortId);
+                       response = resource.accept("application/json").get(ClientResponse.class);
+                   }
+
+                   if (response.getStatus() != 200) {
                        LOG.error("ShortID: " + shortId + ", Failed with HTTP Error code: " + response.getStatus());
                        break;
-                   } else {
-                       foursquaredata = response.getEntity(String.class);
-                       try {
-                           fsqdata = mapper.readValue(foursquaredata, FoursquareCheckinEntity.class);
-                       } catch (JsonGenerationException e) {
-                           e.printStackTrace();
-                           LOG.error("Error: Foursquare Entity Mapper Catch 1");
-                       } catch (JsonMappingException e) {
-                           e.printStackTrace();
-                           LOG.error("Error: Foursquare Entity Mapper Catch 2");
-                       } catch (IOException e) {
-                           e.printStackTrace();
-                           LOG.error("Error: Foursquare Entity Mapper Catch 3");
-                       }
-
-                       venueLat = fsqdata.getResponse().getCheckin().getVenue().getLocation().getLat();
-                       venueLng = fsqdata.getResponse().getCheckin().getVenue().getLocation().getLng();
-
-                       for (LocationFilter item : locationFilter) {
-                           locations.add(insideRadius(venueLat, venueLng, item.getLat(), item.getLng(), item.getRadius()));
-                       }
-
-                       if (locations.contains(true)) {
-                           try {
-                               //---------------------------------------------------
-                               // Users
-                               //---------------------------------------------------
-                               resultSet = statement.executeQuery("select id from finalyearproject.users where id = '" + fsqdata.getResponse().getCheckin().getUser().getId() + "';");
-                               if (!resultSet.next()) {
-                                   statement.executeUpdate("INSERT INTO finalyearproject.users " +
-                                           "VALUES ('" + fsqdata.getResponse().getCheckin().getUser().getId() + "', " +               // id
-                                           "null, '" +                                                                                // twitterhandle
-                                           characterChecker(fsqdata.getResponse().getCheckin().getUser().getFirstName()) + "', '" +   // firstname
-                                           characterChecker(fsqdata.getResponse().getCheckin().getUser().getLastName()) + "', '" +    // lastname
-                                           fsqdata.getResponse().getCheckin().getUser().getGender() + "', '" +                        // gender
-                                           fsqdata.getResponse().getCheckin().getUser().getPhoto().getPrefix() + "', '" +             // photo_prefix
-                                           fsqdata.getResponse().getCheckin().getUser().getPhoto().getSuffix() + "');");              // photo_suffix
-                               }
-
-                               //---------------------------------------------------
-                               // Venues
-                               //---------------------------------------------------
-                               resultSet = statement.executeQuery("select id from finalyearproject.venues where id = '" + fsqdata.getResponse().getCheckin().getVenue().getId() + "';");
-                               if (!resultSet.next()) {
-                                   String joinedAddress = StringUtils.join(fsqdata.getResponse().getCheckin().getVenue().getLocation().getFormattedAddress(), "\n");
-                                   statement.executeUpdate("INSERT INTO finalyearproject.venues " +
-                                           "VALUES ('" + fsqdata.getResponse().getCheckin().getVenue().getId() + "', '" +                                     // id
-                                           characterChecker(fsqdata.getResponse().getCheckin().getVenue().getName()) + "', '" +                               // name
-                                           fsqdata.getResponse().getCheckin().getVenue().getLocation().getLat() + "', '" +                                    // lat
-                                           fsqdata.getResponse().getCheckin().getVenue().getLocation().getLng() + "', '" +                                    // lng
-                                           fsqdata.getResponse().getCheckin().getVenue().getContact().getPhone() + "', '" +                                   // contact_phone
-                                           fsqdata.getResponse().getCheckin().getVenue().getContact().getFormattedPhone() + "', '" +                          // contact_formattedPhone
-                                           fsqdata.getResponse().getCheckin().getVenue().getContact().getTwitter() + "', '" +                                 // contact_twitter
-                                           fsqdata.getResponse().getCheckin().getVenue().getContact().getInstagram() + "', '" +                               // contact_instagram
-                                           characterChecker(fsqdata.getResponse().getCheckin().getVenue().getContact().getFacebook()) + "', '" +              // contact_facebook
-                                           characterChecker(fsqdata.getResponse().getCheckin().getVenue().getContact().getFacebookUsername()) + "', '" +      // contact_facebookusername
-                                           characterChecker(fsqdata.getResponse().getCheckin().getVenue().getContact().getFacebookName()) + "', '" +          // contact_facebookname
-                                           characterChecker(fsqdata.getResponse().getCheckin().getVenue().getLocation().getAddress()) + "', '" +              // location_address
-                                           characterChecker(joinedAddress) + "', '" +                                                                         // location_formattedaddress
-                                           characterChecker(fsqdata.getResponse().getCheckin().getVenue().getLocation().getCrossStreet()) + "', '" +          // location_crossstreet
-                                           characterChecker(fsqdata.getResponse().getCheckin().getVenue().getLocation().getPostalCode()) + "', '" +           // location_postcode
-                                           characterChecker(fsqdata.getResponse().getCheckin().getVenue().getLocation().getCc()) + "', '" +                   // location_cc
-                                           characterChecker(fsqdata.getResponse().getCheckin().getVenue().getLocation().getNeighborhood()) + "', '" +         // location_neighbourhood
-                                           characterChecker(fsqdata.getResponse().getCheckin().getVenue().getLocation().getCity()) + "', '" +                 // location_city
-                                           characterChecker(fsqdata.getResponse().getCheckin().getVenue().getLocation().getState()) + "', '" +                // location_state
-                                           characterChecker(fsqdata.getResponse().getCheckin().getVenue().getLocation().getCountry()) + "', " +               // location_country
-                                           fsqdata.getResponse().getCheckin().getVenue().getVerified() + ", " +                                               // verified
-                                           fsqdata.getResponse().getCheckin().getVenue().getStats().getCheckinsCount() + ", " +                               // stats_checkincount
-                                           fsqdata.getResponse().getCheckin().getVenue().getStats().getUsersCount() + ", " +                                  // stats_usercount
-                                           fsqdata.getResponse().getCheckin().getVenue().getStats().getTipCount() + ", '" +                                   // stats_tipcount
-                                           fsqdata.getResponse().getCheckin().getVenue().getUrl() + "');");                                                   // url
-                               }
-
-                               //---------------------------------------------------
-                               // Checkins
-                               //---------------------------------------------------
-                               resultSet = statement.executeQuery("select id from finalyearproject.checkins where id = '" + fsqdata.getResponse().getCheckin().getId() + "';");
-                               if (!resultSet.next()) {
-                                   statement.executeUpdate("INSERT INTO finalyearproject.checkins " +
-                                           "VALUES ('" + fsqdata.getResponse().getCheckin().getId() + "', '" +        // id
-                                           shortId + "', '" +                                                         // shortid
-                                           fsqdata.getResponse().getCheckin().getCreatedAt() + "', '" +               // createdat
-                                           fsqdata.getResponse().getCheckin().getTimeZoneOffset() + "', '" +          // timezoneoffset
-                                           characterChecker(fsqdata.getResponse().getCheckin().getShout()) + "', '" + // message
-                                           fsqdata.getResponse().getCheckin().getUser().getId() + "', '" +            // userid
-                                           fsqdata.getResponse().getCheckin().getVenue().getId() + "');");            // venueid
-                               }
-
-                               //---------------------------------------------------
-                               // Venue Categories
-                               //---------------------------------------------------
-                               for (Iterator<Categories> a = fsqdata.getResponse().getCheckin().getVenue().getCategories().iterator(); a.hasNext(); ) {
-                                   Categories item = a.next();
-                                   resultSet = statement.executeQuery("select id from finalyearproject.categories where id = '" + item.getId() + "';");
-                                   if (!resultSet.next()) {
-                                       statement.executeUpdate("INSERT INTO finalyearproject.categories " +
-                                               "VALUES ('" + item.getId() + "', '" +       // id
-                                               item.getName() + "', '" +                   // name
-                                               item.getPluralName() + "', '" +             // pluralname
-                                               item.getShortName() + "', '" +              // shortname
-                                               item.getIcon().getPrefix() + "', '" +       // icon_prefix
-                                               item.getIcon().getSuffix() + "');");        // icon_suffix
-                                   }
-                                   statement.executeUpdate("INSERT INTO finalyearproject.venuecategories " +
-                                           "VALUES ('" + fsqdata.getResponse().getCheckin().getVenue().getId() + "', '" +     // venue
-                                           item.getId() + "', " +                                                          // category
-                                           item.getPrimary() + ");");                                                      // primary
-                               }
-
-                               //---------------------------------------------------
-                               // Checkin With
-                               //---------------------------------------------------
-                               if (fsqdata.getResponse().getCheckin().getWith() != null) {
-                                   for (Iterator<User> b = fsqdata.getResponse().getCheckin().getWith().iterator(); b.hasNext(); ) {
-                                       User item = b.next();
-                                       resultSet = statement.executeQuery("select id from finalyearproject.users where id = '" + item.getId() + "';");
-                                       if (!resultSet.next()) {
-                                           statement.executeUpdate("INSERT INTO finalyearproject.users " +
-                                                   "VALUES ('" + item.getId() + "', " +       // id
-                                                   "null, '" +                                // twitterhandle
-                                                   characterChecker(item.getFirstName()) + "', '" +             // firstname
-                                                   characterChecker(item.getLastName()) + "', '" +              // lastname
-                                                   item.getGender() + "', '" +                // gender
-                                                   item.getPhoto().getPrefix() + "', '" +     // photo_prefix
-                                                   item.getPhoto().getSuffix() + "');");      // photo_suffix
-                                       }
-                                       statement.executeUpdate("INSERT INTO finalyearproject.with " +
-                                               "VALUES ('" + fsqdata.getResponse().getCheckin().getId() + "', '" + // checkin
-                                               item.getId() + "');");                                                       // user
-                                   }
-                               }
-
-                               //---------------------------------------------------
-                               // Checkin Photos
-                               //---------------------------------------------------
-                               if (fsqdata.getResponse().getCheckin().getPhotos() != null) {
-                                   for (Iterator<Items> c = fsqdata.getResponse().getCheckin().getPhotos().getItems().iterator(); c.hasNext(); ) {
-                                       Items item = c.next();
-                                       resultSet = statement.executeQuery("select id from finalyearproject.photos where id = '" + item.getId() + "';");
-                                       if (!resultSet.next()) {
-                                           statement.executeUpdate("INSERT INTO finalyearproject.photos " +
-                                                   "VALUES ('" + item.getId() + "', '" +      // id
-                                                   item.getPrefix() + "', '" +                // prefix
-                                                   item.getSuffix() + "');");                 // suffix
-                                       }
-                                       statement.executeUpdate("INSERT INTO finalyearproject.checkinphotos " +
-                                               "VALUES ('" + fsqdata.getResponse().getCheckin().getId() + "', '" +    // checkin
-                                               item.getId() + "');");                                              // photo
-                                   }
-                               }
-                               LOG.info("Success: ShortID: " + shortId + " is in London or New York, added to database");
-
-                           } catch (Exception e) {
-                               e.printStackTrace();
-                               LOG.error("Error: Entering Data Into Database");
-                           }
-                       } else {
-                           LOG.info("Success: ShortID: " + shortId + " is not within location filters, not added to database");
-                       }
-
-                       /*
-                        try {
-                            String prettyJSon = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(data);
-                            //System.out.println(prettyJSon);
-                        } catch (JsonGenerationException e) {
-                            e.printStackTrace();
-                        } catch (JsonMappingException e) {
-                            e.printStackTrace();
-                        } catch (IOException e) {
-                            e.printStackTrace();
-                        }
-                        */
-                       processedSuccessfully = true;
-                       break;
                    }
+
+                   foursquaredata = response.getEntity(String.class);
+                   try {
+                       fsqdata = mapper.readValue(foursquaredata, FoursquareCheckinEntity.class);
+                   } catch (JsonGenerationException e) {
+                       e.printStackTrace();
+                       LOG.error("Error: Foursquare Entity Mapper Catch 1");
+                   } catch (JsonMappingException e) {
+                       e.printStackTrace();
+                       LOG.error("Error: Foursquare Entity Mapper Catch 2");
+                   } catch (IOException e) {
+                       e.printStackTrace();
+                       LOG.error("Error: Foursquare Entity Mapper Catch 3");
+                   }
+
+                   venueLat = fsqdata.getResponse().getCheckin().getVenue().getLocation().getLat();
+                   venueLng = fsqdata.getResponse().getCheckin().getVenue().getLocation().getLng();
+
+                   for (LocationFilter item : locationFilter) {
+                       locations.add(insideRadius(venueLat, venueLng, item.getLat(), item.getLng(), item.getRadius()));
+                   }
+
+                   if (locations.contains(true)) {
+                       try {
+                           //---------------------------------------------------
+                           // Users
+                           //---------------------------------------------------
+                           resultSet = statement.executeQuery("select id from finalyearproject.users where id = '" + fsqdata.getResponse().getCheckin().getUser().getId() + "';");
+                           if (!resultSet.next()) {
+                               statement.executeUpdate("INSERT INTO finalyearproject.users " +
+                                       "VALUES ('" + fsqdata.getResponse().getCheckin().getUser().getId() + "', " +               // id
+                                       "null, '" +                                                                                // twitterhandle
+                                       characterChecker(fsqdata.getResponse().getCheckin().getUser().getFirstName()) + "', '" +   // firstname
+                                       characterChecker(fsqdata.getResponse().getCheckin().getUser().getLastName()) + "', '" +    // lastname
+                                       fsqdata.getResponse().getCheckin().getUser().getGender() + "', '" +                        // gender
+                                       fsqdata.getResponse().getCheckin().getUser().getPhoto().getPrefix() + "', '" +             // photo_prefix
+                                       fsqdata.getResponse().getCheckin().getUser().getPhoto().getSuffix() + "');");              // photo_suffix
+                           }
+
+                           //---------------------------------------------------
+                           // Venues
+                           //---------------------------------------------------
+                           resultSet = statement.executeQuery("select id from finalyearproject.venues where id = '" + fsqdata.getResponse().getCheckin().getVenue().getId() + "';");
+                           if (!resultSet.next()) {
+                               String joinedAddress = StringUtils.join(fsqdata.getResponse().getCheckin().getVenue().getLocation().getFormattedAddress(), "\n");
+                               statement.executeUpdate("INSERT INTO finalyearproject.venues " +
+                                       "VALUES ('" + fsqdata.getResponse().getCheckin().getVenue().getId() + "', '" +                                     // id
+                                       characterChecker(fsqdata.getResponse().getCheckin().getVenue().getName()) + "', '" +                               // name
+                                       fsqdata.getResponse().getCheckin().getVenue().getLocation().getLat() + "', '" +                                    // lat
+                                       fsqdata.getResponse().getCheckin().getVenue().getLocation().getLng() + "', '" +                                    // lng
+                                       fsqdata.getResponse().getCheckin().getVenue().getContact().getPhone() + "', '" +                                   // contact_phone
+                                       fsqdata.getResponse().getCheckin().getVenue().getContact().getFormattedPhone() + "', '" +                          // contact_formattedPhone
+                                       fsqdata.getResponse().getCheckin().getVenue().getContact().getTwitter() + "', '" +                                 // contact_twitter
+                                       fsqdata.getResponse().getCheckin().getVenue().getContact().getInstagram() + "', '" +                               // contact_instagram
+                                       characterChecker(fsqdata.getResponse().getCheckin().getVenue().getContact().getFacebook()) + "', '" +              // contact_facebook
+                                       characterChecker(fsqdata.getResponse().getCheckin().getVenue().getContact().getFacebookUsername()) + "', '" +      // contact_facebookusername
+                                       characterChecker(fsqdata.getResponse().getCheckin().getVenue().getContact().getFacebookName()) + "', '" +          // contact_facebookname
+                                       characterChecker(fsqdata.getResponse().getCheckin().getVenue().getLocation().getAddress()) + "', '" +              // location_address
+                                       characterChecker(joinedAddress) + "', '" +                                                                         // location_formattedaddress
+                                       characterChecker(fsqdata.getResponse().getCheckin().getVenue().getLocation().getCrossStreet()) + "', '" +          // location_crossstreet
+                                       characterChecker(fsqdata.getResponse().getCheckin().getVenue().getLocation().getPostalCode()) + "', '" +           // location_postcode
+                                       characterChecker(fsqdata.getResponse().getCheckin().getVenue().getLocation().getCc()) + "', '" +                   // location_cc
+                                       characterChecker(fsqdata.getResponse().getCheckin().getVenue().getLocation().getNeighborhood()) + "', '" +         // location_neighbourhood
+                                       characterChecker(fsqdata.getResponse().getCheckin().getVenue().getLocation().getCity()) + "', '" +                 // location_city
+                                       characterChecker(fsqdata.getResponse().getCheckin().getVenue().getLocation().getState()) + "', '" +                // location_state
+                                       characterChecker(fsqdata.getResponse().getCheckin().getVenue().getLocation().getCountry()) + "', " +               // location_country
+                                       fsqdata.getResponse().getCheckin().getVenue().getVerified() + ", " +                                               // verified
+                                       fsqdata.getResponse().getCheckin().getVenue().getStats().getCheckinsCount() + ", " +                               // stats_checkincount
+                                       fsqdata.getResponse().getCheckin().getVenue().getStats().getUsersCount() + ", " +                                  // stats_usercount
+                                       fsqdata.getResponse().getCheckin().getVenue().getStats().getTipCount() + ", '" +                                   // stats_tipcount
+                                       fsqdata.getResponse().getCheckin().getVenue().getUrl() + "');");                                                   // url
+                           }
+
+                           //---------------------------------------------------
+                           // Checkins
+                           //---------------------------------------------------
+                           resultSet = statement.executeQuery("select id from finalyearproject.checkins where id = '" + fsqdata.getResponse().getCheckin().getId() + "';");
+                           if (!resultSet.next()) {
+                               statement.executeUpdate("INSERT INTO finalyearproject.checkins " +
+                                       "VALUES ('" + fsqdata.getResponse().getCheckin().getId() + "', '" +        // id
+                                       shortId + "', '" +                                                         // shortid
+                                       fsqdata.getResponse().getCheckin().getCreatedAt() + "', '" +               // createdat
+                                       fsqdata.getResponse().getCheckin().getTimeZoneOffset() + "', '" +          // timezoneoffset
+                                       characterChecker(fsqdata.getResponse().getCheckin().getShout()) + "', '" + // message
+                                       fsqdata.getResponse().getCheckin().getUser().getId() + "', '" +            // userid
+                                       fsqdata.getResponse().getCheckin().getVenue().getId() + "');");            // venueid
+                           }
+
+                           //---------------------------------------------------
+                           // Venue Categories
+                           //---------------------------------------------------
+                           for (Iterator<Categories> a = fsqdata.getResponse().getCheckin().getVenue().getCategories().iterator(); a.hasNext(); ) {
+                               Categories item = a.next();
+                               resultSet = statement.executeQuery("select id from finalyearproject.categories where id = '" + item.getId() + "';");
+                               if (!resultSet.next()) {
+                                   statement.executeUpdate("INSERT INTO finalyearproject.categories " +
+                                           "VALUES ('" + item.getId() + "', '" +       // id
+                                           item.getName() + "', '" +                   // name
+                                           item.getPluralName() + "', '" +             // pluralname
+                                           item.getShortName() + "', '" +              // shortname
+                                           item.getIcon().getPrefix() + "', '" +       // icon_prefix
+                                           item.getIcon().getSuffix() + "');");        // icon_suffix
+                               }
+                               statement.executeUpdate("INSERT INTO finalyearproject.venuecategories " +
+                                       "VALUES ('" + fsqdata.getResponse().getCheckin().getVenue().getId() + "', '" +     // venue
+                                       item.getId() + "', " +                                                          // category
+                                       item.getPrimary() + ");");                                                      // primary
+                           }
+
+                           //---------------------------------------------------
+                           // Checkin With
+                           //---------------------------------------------------
+                           if (fsqdata.getResponse().getCheckin().getWith() != null) {
+                               for (Iterator<User> b = fsqdata.getResponse().getCheckin().getWith().iterator(); b.hasNext(); ) {
+                                   User item = b.next();
+                                   resultSet = statement.executeQuery("select id from finalyearproject.users where id = '" + item.getId() + "';");
+                                   if (!resultSet.next()) {
+                                       statement.executeUpdate("INSERT INTO finalyearproject.users " +
+                                               "VALUES ('" + item.getId() + "', " +       // id
+                                               "null, '" +                                // twitterhandle
+                                               characterChecker(item.getFirstName()) + "', '" +             // firstname
+                                               characterChecker(item.getLastName()) + "', '" +              // lastname
+                                               item.getGender() + "', '" +                // gender
+                                               item.getPhoto().getPrefix() + "', '" +     // photo_prefix
+                                               item.getPhoto().getSuffix() + "');");      // photo_suffix
+                                   }
+                                   statement.executeUpdate("INSERT INTO finalyearproject.with " +
+                                           "VALUES ('" + fsqdata.getResponse().getCheckin().getId() + "', '" + // checkin
+                                           item.getId() + "');");                                                       // user
+                               }
+                           }
+
+                           //---------------------------------------------------
+                           // Checkin Photos
+                           //---------------------------------------------------
+                           if (fsqdata.getResponse().getCheckin().getPhotos() != null) {
+                               for (Iterator<Items> c = fsqdata.getResponse().getCheckin().getPhotos().getItems().iterator(); c.hasNext(); ) {
+                                   Items item = c.next();
+                                   resultSet = statement.executeQuery("select id from finalyearproject.photos where id = '" + item.getId() + "';");
+                                   if (!resultSet.next()) {
+                                       statement.executeUpdate("INSERT INTO finalyearproject.photos " +
+                                               "VALUES ('" + item.getId() + "', '" +      // id
+                                               item.getPrefix() + "', '" +                // prefix
+                                               item.getSuffix() + "');");                 // suffix
+                                   }
+                                   statement.executeUpdate("INSERT INTO finalyearproject.checkinphotos " +
+                                           "VALUES ('" + fsqdata.getResponse().getCheckin().getId() + "', '" +    // checkin
+                                           item.getId() + "');");                                              // photo
+                               }
+                           }
+                           LOG.info("Success: ShortID: " + shortId + " is in London or New York, added to database");
+
+                       } catch (Exception e) {
+                           e.printStackTrace();
+                           LOG.error("Error: Entering Data Into Database");
+                       }
+                   } else {
+                       LOG.info("Success: ShortID: " + shortId + " is not within location filters, not added to database");
+                   }
+
+                   /*
+                    try {
+                        String prettyJSon = mapper.writerWithDefaultPrettyPrinter().writeValueAsString(data);
+                        //System.out.println(prettyJSon);
+                    } catch (JsonGenerationException e) {
+                        e.printStackTrace();
+                    } catch (JsonMappingException e) {
+                        e.printStackTrace();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    */
+                   processedSuccessfully = true;
+                   break;
                } catch (Throwable t) {
                    LOG.warn("Caught throwable while processing record " + record, t);
                }
@@ -420,7 +431,7 @@ public class KinesisRecordProcessor implements IRecordProcessor {
            }
 
            if (!processedSuccessfully) {
-               LOG.error("Couldn't process record " + record + ". Skipping the recordX.");
+               LOG.error("Couldn't process record " + record + ". Skipping the record.");
            }
        }
    }

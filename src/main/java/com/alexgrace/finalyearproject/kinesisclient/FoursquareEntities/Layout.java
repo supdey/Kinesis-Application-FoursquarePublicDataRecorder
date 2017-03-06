@@ -20,6 +20,12 @@ public class Layout {
     public LayoutDetails getBottom() {
         return bottom;
     }
+    public LayoutDetails getTopLeft() {
+        return topLeft;
+    }
+    public LayoutDetails getTopRight() {
+        return topRight;
+    }
     public LayoutDetails getBottomLeft() {
         return bottomLeft;
     }
@@ -32,6 +38,8 @@ public class Layout {
     private LayoutDetails left;
     private LayoutDetails right;
     private LayoutDetails bottom;
+    private LayoutDetails topLeft;
+    private LayoutDetails topRight;
     private LayoutDetails bottomLeft;
     private LayoutDetails bottomRight;
 }
