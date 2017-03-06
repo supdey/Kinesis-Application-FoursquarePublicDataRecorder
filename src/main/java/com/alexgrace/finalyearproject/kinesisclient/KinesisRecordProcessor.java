@@ -220,7 +220,7 @@ public class KinesisRecordProcessor implements IRecordProcessor {
                        LOG.error("Regex error: " + url);
                        break;
                    }
-                   
+
                    if (shortId == null) {
                        LOG.error("ShortID is null, url is: " + url);
                        break;

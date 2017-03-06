@@ -30,6 +30,9 @@ public class Venue {
     public Stats getStats() {
         return stats;
     }
+    public boolean getClosed() {
+        return closed;
+    }
     public String getUrl() {
         return url;
     }
@@ -71,6 +74,7 @@ public class Venue {
     private List<Categories> categories;
     private boolean verified;
     private Stats stats;
+    private boolean closed;
     private String url;
     private boolean hasMenu;
     private Delivery delivery;

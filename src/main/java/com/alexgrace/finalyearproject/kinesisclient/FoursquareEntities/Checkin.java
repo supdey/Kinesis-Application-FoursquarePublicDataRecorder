@@ -26,6 +26,9 @@ public class Checkin {
     public int getTimeZoneOffset() {
         return timeZoneOffset;
     }
+    public User getCreatedBy() {
+        return createdBy;
+    }
     public List<User> getWith() {
         return with;
     }
@@ -75,6 +78,7 @@ public class Checkin {
     private List<Entities> entities;
     private String shout;
     private int timeZoneOffset;
+    private User createdBy;
     private List<User> with;
     private User user;
     private Venue venue;

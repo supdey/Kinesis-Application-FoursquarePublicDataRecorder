@@ -4,6 +4,8 @@
 
 package com.alexgrace.finalyearproject.kinesisclient.FoursquareEntities;
 
+import java.util.List;
+
 public class Events {
     public int getCount() {
         return count;
@@ -11,7 +13,11 @@ public class Events {
     public String getSummary() {
         return summary;
     }
+    public List<EventItem> getItems() {
+        return items;
+    }
 
     private int count;
     private String summary;
+    private List<EventItem> items;
 }

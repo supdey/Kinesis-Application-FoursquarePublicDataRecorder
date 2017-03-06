@@ -8,6 +8,14 @@ public class Provider {
     public String getName() {
         return name;
     }
+    public Image getIconUrl() {
+        return iconUrl;
+    }
+    public String getUrlText() {
+        return urlText;
+    }
 
     private String name;
+    private Image iconUrl;
+    private String urlText;
 }
