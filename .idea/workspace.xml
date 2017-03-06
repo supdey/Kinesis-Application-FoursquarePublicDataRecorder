@@ -2,48 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9f992b1-0687-4171-b755-bf33b5f74445" name="Default" comment="">
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/ConfigKeys.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/OtherEntities/ConfigKeys.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/BeenHere.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/BeenHere.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Categories.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/Categories.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Checkin.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/Checkin.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Contact.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/Contact.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Delivery.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/Delivery.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Effects.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/Effects.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Entities.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/Entities.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Event.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/Event.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Events.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/Events.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/FoursquareCheckinEntity.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/FoursquareCheckinEntity.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/FsqGroup.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/FsqGroup.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Groups.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/Groups.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Icon.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/Icon.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Image.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/Image.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Items.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/Items.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/LabeledLatLngs.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/LabeledLatLngs.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Layout.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/Layout.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/LayoutDetails.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/LayoutDetails.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Likes.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/Likes.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Location.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/Location.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Menu.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/Menu.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Meta.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/Meta.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Photo.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/Photo.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Photos.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/Photos.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/PickerPosition.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/PickerPosition.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Provider.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/Provider.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Response.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/Response.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Score.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/Score.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Scores.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/Scores.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Source.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/Source.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Stats.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/Stats.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Sticker.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/Sticker.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/StickerPowerup.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/StickerPowerup.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/User.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/User.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/Venue.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/Venue.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/entities/VenuePage.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/VenuePage.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/alexgrace/finalyearproject/kinesisclient/KinesisApplication.class" afterPath="$PROJECT_DIR$/target/classes/com/alexgrace/finalyearproject/kinesisclient/KinesisApplication.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessor.class" afterPath="$PROJECT_DIR$/target/classes/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessor.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessorFactory.class" afterPath="$PROJECT_DIR$/target/classes/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessorFactory.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LocationFilters.json" afterPath="$PROJECT_DIR$/LocationFilters.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisApplication.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisApplication.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessor.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessorFactory.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessorFactory.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/OtherEntities/LocationFilter.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/OtherEntities/LocationFilter.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -67,57 +33,11 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="KinesisApplication.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="KinesisApplication.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisApplication.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="462">
-              <caret line="107" column="89" lean-forward="false" selection-start-line="107" selection-start-column="60" selection-end-line="107" selection-end-column="89" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KinesisRecordProcessor.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessor.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1744">
-              <caret line="223" column="231" lean-forward="false" selection-start-line="223" selection-start-column="231" selection-end-line="223" selection-end-column="231" />
-              <folding>
-                <element signature="e#0#29258#0" expanded="true" />
-                <element signature="imports" expanded="true" />
-                <element signature="e#10410#10463#0" expanded="false" />
-                <element signature="e#12020#12073#0" expanded="false" />
-                <element signature="e#17172#17225#0" expanded="false" />
-                <element signature="e#18659#18712#0" expanded="false" />
-                <element signature="e#20616#20669#0" expanded="false" />
-                <element signature="e#22696#22749#0" expanded="false" />
-                <marker date="1488758773000" expanded="true" signature="10656:10767" ph="select id fr... users" />
-                <marker date="1488758773000" expanded="false" signature="10888:11921" ph="INSERT INTO finalyearproject.users... " />
-                <marker date="1488758773000" expanded="true" signature="12267:12380" ph="select id fr... venues" />
-                <marker date="1488758773000" expanded="false" signature="12666:17045" ph="INSERT INTO finalyearproject.venues... " />
-                <marker date="1488758773000" expanded="true" signature="17421:17525" ph="select id fr... checkins" />
-                <marker date="1488758773000" expanded="false" signature="17646:18567" ph="INSERT INTO finalyearproject.checkins... " />
-                <marker date="1488758773000" expanded="true" signature="19135:19211" ph="select id fr... categories" />
-                <marker date="1488758773000" expanded="false" signature="19340:19974" ph="INSERT INTO finalyearproject.categories... " />
-                <marker date="1488758773000" expanded="false" signature="20098:20482" ph="INSERT INTO finalyearproject.venuecategories... " />
-                <marker date="1488758773000" expanded="true" signature="21162:21233" ph="select id fr... users" />
-                <marker date="1488758773000" expanded="false" signature="21370:22167" ph="INSERT INTO finalyearproject.users... " />
-                <marker date="1488758773000" expanded="false" signature="22298:22527" ph="INSERT INTO finalyearproject.with... " />
-                <marker date="1488758773000" expanded="true" signature="23261:23333" ph="select id fr... photos" />
-                <marker date="1488758773000" expanded="false" signature="23470:23787" ph="INSERT INTO finalyearproject.photos... " />
-                <marker date="1488758773000" expanded="false" signature="23923:24164" ph="INSERT INTO finalyearproject.checkinphotos... " />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="KinesisRecordProcessorFactory.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessorFactory.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="37" column="47" lean-forward="false" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="47" />
+            <state relative-caret-position="300">
+              <caret line="129" column="42" lean-forward="true" selection-start-line="129" selection-start-column="42" selection-end-line="129" selection-end-column="42" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -128,8 +48,8 @@
       <file leaf-file-name="FoursquareClient.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/OtherEntities/FoursquareClient.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="30">
-              <caret line="2" column="3" lean-forward="false" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
+            <state relative-caret-position="90">
+              <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
               <folding>
                 <element signature="e#0#396#0" expanded="true" />
               </folding>
@@ -140,27 +60,59 @@
       <file leaf-file-name="LocationFilter.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/OtherEntities/LocationFilter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="90">
-              <caret line="6" column="27" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="27" />
+            <state relative-caret-position="105">
+              <caret line="8" column="16" lean-forward="false" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
               <folding>
                 <element signature="e#0#428#0" expanded="true" />
-                <element signature="e#212#213#0" expanded="true" />
-                <element signature="e#238#239#0" expanded="true" />
                 <element signature="e#267#268#0" expanded="true" />
                 <element signature="e#293#294#0" expanded="true" />
-                <element signature="e#322#323#0" expanded="true" />
-                <element signature="e#351#352#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LocationFilters.json" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/LocationFilters.json">
+      <file leaf-file-name="KinesisRecordProcessorFactory.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessorFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="150">
+              <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="KinesisRecordProcessor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessor.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="195">
+              <caret line="252" column="69" lean-forward="true" selection-start-line="252" selection-start-column="69" selection-end-line="252" selection-end-column="69" />
+              <folding>
+                <element signature="e#0#28998#0" expanded="true" />
+                <element signature="imports" expanded="true" />
+                <element signature="e#10150#10203#0" expanded="false" />
+                <element signature="e#11760#11813#0" expanded="false" />
+                <element signature="e#16912#16965#0" expanded="false" />
+                <element signature="e#18399#18452#0" expanded="false" />
+                <element signature="e#20356#20409#0" expanded="false" />
+                <element signature="e#22436#22489#0" expanded="false" />
+                <marker date="1488767616000" expanded="true" signature="10396:10507" ph="select id fr... users" />
+                <marker date="1488767616000" expanded="false" signature="10628:11661" ph="INSERT INTO finalyearproject.users... " />
+                <marker date="1488767616000" expanded="true" signature="12007:12120" ph="select id fr... venues" />
+                <marker date="1488767616000" expanded="false" signature="12406:16785" ph="INSERT INTO finalyearproject.venues... " />
+                <marker date="1488767616000" expanded="true" signature="17161:17265" ph="select id fr... checkins" />
+                <marker date="1488767616000" expanded="false" signature="17386:18307" ph="INSERT INTO finalyearproject.checkins... " />
+                <marker date="1488767616000" expanded="true" signature="18875:18951" ph="select id fr... categories" />
+                <marker date="1488767616000" expanded="false" signature="19080:19714" ph="INSERT INTO finalyearproject.categories... " />
+                <marker date="1488767616000" expanded="false" signature="19838:20222" ph="INSERT INTO finalyearproject.venuecategories... " />
+                <marker date="1488767616000" expanded="true" signature="20902:20973" ph="select id fr... users" />
+                <marker date="1488767616000" expanded="false" signature="21110:21907" ph="INSERT INTO finalyearproject.users... " />
+                <marker date="1488767616000" expanded="false" signature="22038:22267" ph="INSERT INTO finalyearproject.with... " />
+                <marker date="1488767616000" expanded="true" signature="23001:23073" ph="select id fr... photos" />
+                <marker date="1488767616000" expanded="false" signature="23210:23527" ph="INSERT INTO finalyearproject.photos... " />
+                <marker date="1488767616000" expanded="false" signature="23663:23904" ph="INSERT INTO finalyearproject.checkinphotos... " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -198,6 +150,7 @@
       <find>fsqdata</find>
       <find>Properties</find>
       <find>mapper</find>
+      <find>locationFilter</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -253,11 +206,13 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareClient.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/OtherEntities/FoursquareClient.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/OtherEntities/LocationFilter.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessorFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/OtherEntities/ConfigKeys.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisApplication.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/OtherEntities/FoursquareClientWrapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/OtherEntities/LocationFilterWrapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessorFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessor.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/OtherEntities/LocationFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisApplication.java" />
       </list>
     </option>
   </component>
@@ -925,12 +880,12 @@
       <updated>1488226146666</updated>
       <workItem from="1488226152845" duration="39999000" />
       <workItem from="1488505710632" duration="8551000" />
-      <workItem from="1488730570915" duration="13230000" />
+      <workItem from="1488730570915" duration="19992000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="61780000" />
+    <option name="totallyTimeSpent" value="68542000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -993,15 +948,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessorFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="735">
-          <caret line="49" column="4" lean-forward="false" selection-start-line="49" selection-start-column="4" selection-end-line="49" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/Coordinate.java" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/Events.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -1087,14 +1033,6 @@
           <folding>
             <element signature="e#0#970#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/LabeledLatLngs.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1397,22 +1335,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/OtherEntities/LocationFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="27" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="27" />
-          <folding>
-            <element signature="e#0#428#0" expanded="true" />
-            <element signature="e#212#213#0" expanded="true" />
-            <element signature="e#238#239#0" expanded="true" />
-            <element signature="e#267#268#0" expanded="true" />
-            <element signature="e#293#294#0" expanded="true" />
-            <element signature="e#322#323#0" expanded="true" />
-            <element signature="e#351#352#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/OtherEntities/ConfigKeys.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="765">
@@ -1421,30 +1343,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/OtherEntities/FoursquareClient.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/FoursquareEntities/LabeledLatLngs.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="3" lean-forward="false" selection-start-line="2" selection-start-column="3" selection-end-line="2" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#396#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="60">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisApplication.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/OtherEntities/LocationFilterWrapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="462">
-          <caret line="107" column="89" lean-forward="false" selection-start-line="107" selection-start-column="60" selection-end-line="107" selection-end-column="89" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
+        <state relative-caret-position="120">
+          <caret line="8" column="36" lean-forward="true" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/OtherEntities/FoursquareClientWrapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="13" column="52" lean-forward="false" selection-start-line="13" selection-start-column="35" selection-end-line="13" selection-end-column="52" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessorFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="37" column="47" lean-forward="false" selection-start-line="37" selection-start-column="12" selection-end-line="37" selection-end-column="47" />
+        <state relative-caret-position="150">
+          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -1453,32 +1379,64 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1744">
-          <caret line="223" column="231" lean-forward="false" selection-start-line="223" selection-start-column="231" selection-end-line="223" selection-end-column="231" />
+        <state relative-caret-position="195">
+          <caret line="252" column="69" lean-forward="true" selection-start-line="252" selection-start-column="69" selection-end-line="252" selection-end-column="69" />
           <folding>
-            <element signature="e#0#29258#0" expanded="true" />
+            <element signature="e#0#28998#0" expanded="true" />
             <element signature="imports" expanded="true" />
-            <element signature="e#10410#10463#0" expanded="false" />
-            <element signature="e#12020#12073#0" expanded="false" />
-            <element signature="e#17172#17225#0" expanded="false" />
-            <element signature="e#18659#18712#0" expanded="false" />
-            <element signature="e#20616#20669#0" expanded="false" />
-            <element signature="e#22696#22749#0" expanded="false" />
-            <marker date="1488758773000" expanded="true" signature="10656:10767" ph="select id fr... users" />
-            <marker date="1488758773000" expanded="false" signature="10888:11921" ph="INSERT INTO finalyearproject.users... " />
-            <marker date="1488758773000" expanded="true" signature="12267:12380" ph="select id fr... venues" />
-            <marker date="1488758773000" expanded="false" signature="12666:17045" ph="INSERT INTO finalyearproject.venues... " />
-            <marker date="1488758773000" expanded="true" signature="17421:17525" ph="select id fr... checkins" />
-            <marker date="1488758773000" expanded="false" signature="17646:18567" ph="INSERT INTO finalyearproject.checkins... " />
-            <marker date="1488758773000" expanded="true" signature="19135:19211" ph="select id fr... categories" />
-            <marker date="1488758773000" expanded="false" signature="19340:19974" ph="INSERT INTO finalyearproject.categories... " />
-            <marker date="1488758773000" expanded="false" signature="20098:20482" ph="INSERT INTO finalyearproject.venuecategories... " />
-            <marker date="1488758773000" expanded="true" signature="21162:21233" ph="select id fr... users" />
-            <marker date="1488758773000" expanded="false" signature="21370:22167" ph="INSERT INTO finalyearproject.users... " />
-            <marker date="1488758773000" expanded="false" signature="22298:22527" ph="INSERT INTO finalyearproject.with... " />
-            <marker date="1488758773000" expanded="true" signature="23261:23333" ph="select id fr... photos" />
-            <marker date="1488758773000" expanded="false" signature="23470:23787" ph="INSERT INTO finalyearproject.photos... " />
-            <marker date="1488758773000" expanded="false" signature="23923:24164" ph="INSERT INTO finalyearproject.checkinphotos... " />
+            <element signature="e#10150#10203#0" expanded="false" />
+            <element signature="e#11760#11813#0" expanded="false" />
+            <element signature="e#16912#16965#0" expanded="false" />
+            <element signature="e#18399#18452#0" expanded="false" />
+            <element signature="e#20356#20409#0" expanded="false" />
+            <element signature="e#22436#22489#0" expanded="false" />
+            <marker date="1488767616000" expanded="true" signature="10396:10507" ph="select id fr... users" />
+            <marker date="1488767616000" expanded="false" signature="10628:11661" ph="INSERT INTO finalyearproject.users... " />
+            <marker date="1488767616000" expanded="true" signature="12007:12120" ph="select id fr... venues" />
+            <marker date="1488767616000" expanded="false" signature="12406:16785" ph="INSERT INTO finalyearproject.venues... " />
+            <marker date="1488767616000" expanded="true" signature="17161:17265" ph="select id fr... checkins" />
+            <marker date="1488767616000" expanded="false" signature="17386:18307" ph="INSERT INTO finalyearproject.checkins... " />
+            <marker date="1488767616000" expanded="true" signature="18875:18951" ph="select id fr... categories" />
+            <marker date="1488767616000" expanded="false" signature="19080:19714" ph="INSERT INTO finalyearproject.categories... " />
+            <marker date="1488767616000" expanded="false" signature="19838:20222" ph="INSERT INTO finalyearproject.venuecategories... " />
+            <marker date="1488767616000" expanded="true" signature="20902:20973" ph="select id fr... users" />
+            <marker date="1488767616000" expanded="false" signature="21110:21907" ph="INSERT INTO finalyearproject.users... " />
+            <marker date="1488767616000" expanded="false" signature="22038:22267" ph="INSERT INTO finalyearproject.with... " />
+            <marker date="1488767616000" expanded="true" signature="23001:23073" ph="select id fr... photos" />
+            <marker date="1488767616000" expanded="false" signature="23210:23527" ph="INSERT INTO finalyearproject.photos... " />
+            <marker date="1488767616000" expanded="false" signature="23663:23904" ph="INSERT INTO finalyearproject.checkinphotos... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/OtherEntities/FoursquareClient.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+          <folding>
+            <element signature="e#0#396#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/OtherEntities/LocationFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="8" column="16" lean-forward="false" selection-start-line="8" selection-start-column="16" selection-end-line="8" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#428#0" expanded="true" />
+            <element signature="e#267#268#0" expanded="true" />
+            <element signature="e#293#294#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisApplication.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="129" column="42" lean-forward="true" selection-start-line="129" selection-start-column="42" selection-end-line="129" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -20,13 +20,13 @@ package com.alexgrace.finalyearproject.kinesisclient;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.InetAddress;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.util.List;
 import java.util.Properties;
 import java.util.UUID;
 
-import com.alexgrace.finalyearproject.kinesisclient.OtherEntities.ConfigKeys;
-import com.alexgrace.finalyearproject.kinesisclient.OtherEntities.FoursquareClient;
-import com.alexgrace.finalyearproject.kinesisclient.OtherEntities.LocationFilter;
+import com.alexgrace.finalyearproject.kinesisclient.OtherEntities.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
@@ -75,7 +75,10 @@ public final class KinesisApplication {
 
    private static final Log LOG = LogFactory.getLog(KinesisApplication.class);
 
-   /**
+   private static String locationFilterString;
+   private static String foursquareClientKeyString;
+
+    /**
     *
     */
    private KinesisApplication() {
@@ -90,10 +93,10 @@ public final class KinesisApplication {
        String propertiesFile = null, locationFilters = null, foursquareClientKey = null;
        mapper = new ObjectMapper();
 
-       if (args.length > 1) {
+       if (args.length != 3) {
            System.err.println("Usage: java " + KinesisApplication.class.getName() + " <propertiesFile>");
            System.exit(1);
-       } else if (args.length == 3) {
+       } else {
            propertiesFile = args[0];
            locationFilters= args[1];
            foursquareClientKey = args[2];
@@ -127,12 +130,14 @@ public final class KinesisApplication {
            loadProperties(propertiesFile);
        }
        if (locationFilters != null) {
-           locationFilter = mapper.readValue(locationFilters, mapper.getTypeFactory().constructCollectionType(List.class, LocationFilter.class));
-
+           locationFilterString = new String(Files.readAllBytes(Paths.get(locationFilters)));
+           locationFilter = mapper.readValue(locationFilterString, mapper.getTypeFactory().constructCollectionType(List.class, LocationFilter.class));
+           LOG.info("Importing Filtering Locations Done");
        }
        if (foursquareClientKey != null) {
-           foursquareClient = mapper.readValue(foursquareClientKey, mapper.getTypeFactory().constructCollectionType(List.class, FoursquareClient.class));
-
+           foursquareClientKeyString = new String(Files.readAllBytes(Paths.get(foursquareClientKey)));
+           foursquareClient = mapper.readValue(foursquareClientKeyString, mapper.getTypeFactory().constructCollectionType(List.class, FoursquareClient.class));
+           LOG.info("Importing Foursquare Client Keys Done");
        }
 
        // ensure the JVM will refresh the cached IP values of AWS resources (e.g. service endpoints).

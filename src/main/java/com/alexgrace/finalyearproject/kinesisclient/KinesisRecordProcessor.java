@@ -23,10 +23,7 @@ import java.nio.charset.CharsetDecoder;
 import java.util.Iterator;
 import java.util.List;
 
-import com.alexgrace.finalyearproject.kinesisclient.FoursquareEntities.FoursquareCheckinEntity;
-import com.alexgrace.finalyearproject.kinesisclient.FoursquareEntities.Categories;
-import com.alexgrace.finalyearproject.kinesisclient.FoursquareEntities.User;
-import com.alexgrace.finalyearproject.kinesisclient.FoursquareEntities.Items;
+import com.alexgrace.finalyearproject.kinesisclient.FoursquareEntities.*;
 import com.alexgrace.finalyearproject.kinesisclient.OtherEntities.FoursquareClient;
 import com.alexgrace.finalyearproject.kinesisclient.OtherEntities.LocationFilter;
 

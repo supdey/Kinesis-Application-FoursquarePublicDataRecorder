@@ -6,16 +6,16 @@ package com.alexgrace.finalyearproject.kinesisclient.OtherEntities;
 
 public class LocationFilter {
     public double getLat() {
-        return Lat;
+        return lat;
     }
     public double getLng() {
-        return Lng;
+        return lng;
     }
     public int getRadius() {
-        return Radius;
+        return radius;
     }
 
-    private double Lat;
-    private double Lng;
-    private int Radius;
+    private double lat;
+    private double lng;
+    private int radius;
 }
