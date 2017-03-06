@@ -2,14 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b9f992b1-0687-4171-b755-bf33b5f74445" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/alexgrace/finalyearproject/kinesisclient/KinesisApplication.class" afterPath="$PROJECT_DIR$/target/classes/com/alexgrace/finalyearproject/kinesisclient/KinesisApplication.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessor.class" afterPath="$PROJECT_DIR$/target/classes/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessorFactory.class" afterPath="$PROJECT_DIR$/target/classes/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessorFactory.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LocationFilters.json" afterPath="$PROJECT_DIR$/LocationFilters.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisApplication.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisApplication.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessor.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/OtherEntities/LocationFilter.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/OtherEntities/LocationFilter.java" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -33,7 +26,7 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="KinesisApplication.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="KinesisApplication.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisApplication.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="300">
@@ -83,35 +76,35 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="KinesisRecordProcessor.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="KinesisRecordProcessor.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="252" column="69" lean-forward="true" selection-start-line="252" selection-start-column="69" selection-end-line="252" selection-end-column="69" />
+            <state relative-caret-position="225">
+              <caret line="252" column="24" lean-forward="true" selection-start-line="252" selection-start-column="24" selection-end-line="252" selection-end-column="24" />
               <folding>
-                <element signature="e#0#28998#0" expanded="true" />
+                <element signature="e#0#28885#0" expanded="true" />
                 <element signature="imports" expanded="true" />
-                <element signature="e#10150#10203#0" expanded="false" />
-                <element signature="e#11760#11813#0" expanded="false" />
-                <element signature="e#16912#16965#0" expanded="false" />
-                <element signature="e#18399#18452#0" expanded="false" />
-                <element signature="e#20356#20409#0" expanded="false" />
-                <element signature="e#22436#22489#0" expanded="false" />
-                <marker date="1488767616000" expanded="true" signature="10396:10507" ph="select id fr... users" />
-                <marker date="1488767616000" expanded="false" signature="10628:11661" ph="INSERT INTO finalyearproject.users... " />
-                <marker date="1488767616000" expanded="true" signature="12007:12120" ph="select id fr... venues" />
-                <marker date="1488767616000" expanded="false" signature="12406:16785" ph="INSERT INTO finalyearproject.venues... " />
-                <marker date="1488767616000" expanded="true" signature="17161:17265" ph="select id fr... checkins" />
-                <marker date="1488767616000" expanded="false" signature="17386:18307" ph="INSERT INTO finalyearproject.checkins... " />
-                <marker date="1488767616000" expanded="true" signature="18875:18951" ph="select id fr... categories" />
-                <marker date="1488767616000" expanded="false" signature="19080:19714" ph="INSERT INTO finalyearproject.categories... " />
-                <marker date="1488767616000" expanded="false" signature="19838:20222" ph="INSERT INTO finalyearproject.venuecategories... " />
-                <marker date="1488767616000" expanded="true" signature="20902:20973" ph="select id fr... users" />
-                <marker date="1488767616000" expanded="false" signature="21110:21907" ph="INSERT INTO finalyearproject.users... " />
-                <marker date="1488767616000" expanded="false" signature="22038:22267" ph="INSERT INTO finalyearproject.with... " />
-                <marker date="1488767616000" expanded="true" signature="23001:23073" ph="select id fr... photos" />
-                <marker date="1488767616000" expanded="false" signature="23210:23527" ph="INSERT INTO finalyearproject.photos... " />
-                <marker date="1488767616000" expanded="false" signature="23663:23904" ph="INSERT INTO finalyearproject.checkinphotos... " />
+                <element signature="e#10037#10090#0" expanded="false" />
+                <element signature="e#11647#11700#0" expanded="false" />
+                <element signature="e#16799#16852#0" expanded="false" />
+                <element signature="e#18286#18339#0" expanded="false" />
+                <element signature="e#20243#20296#0" expanded="false" />
+                <element signature="e#22323#22376#0" expanded="false" />
+                <marker date="1488768714000" expanded="true" signature="10283:10394" ph="select id fr... users" />
+                <marker date="1488768714000" expanded="false" signature="10515:11548" ph="INSERT INTO finalyearproject.users... " />
+                <marker date="1488768714000" expanded="true" signature="11894:12007" ph="select id fr... venues" />
+                <marker date="1488768714000" expanded="false" signature="12293:16672" ph="INSERT INTO finalyearproject.venues... " />
+                <marker date="1488768714000" expanded="true" signature="17048:17152" ph="select id fr... checkins" />
+                <marker date="1488768714000" expanded="false" signature="17273:18194" ph="INSERT INTO finalyearproject.checkins... " />
+                <marker date="1488768714000" expanded="true" signature="18762:18838" ph="select id fr... categories" />
+                <marker date="1488768714000" expanded="false" signature="18967:19601" ph="INSERT INTO finalyearproject.categories... " />
+                <marker date="1488768714000" expanded="false" signature="19725:20109" ph="INSERT INTO finalyearproject.venuecategories... " />
+                <marker date="1488768714000" expanded="true" signature="20789:20860" ph="select id fr... users" />
+                <marker date="1488768714000" expanded="false" signature="20997:21794" ph="INSERT INTO finalyearproject.users... " />
+                <marker date="1488768714000" expanded="false" signature="21925:22154" ph="INSERT INTO finalyearproject.with... " />
+                <marker date="1488768714000" expanded="true" signature="22888:22960" ph="select id fr... photos" />
+                <marker date="1488768714000" expanded="false" signature="23097:23414" ph="INSERT INTO finalyearproject.photos... " />
+                <marker date="1488768714000" expanded="false" signature="23550:23791" ph="INSERT INTO finalyearproject.checkinphotos... " />
               </folding>
             </state>
           </provider>
@@ -210,9 +203,9 @@
         <option value="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/OtherEntities/FoursquareClientWrapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/OtherEntities/LocationFilterWrapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessorFactory.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessor.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/OtherEntities/LocationFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisApplication.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessor.java" />
       </list>
     </option>
   </component>
@@ -880,12 +873,12 @@
       <updated>1488226146666</updated>
       <workItem from="1488226152845" duration="39999000" />
       <workItem from="1488505710632" duration="8551000" />
-      <workItem from="1488730570915" duration="19992000" />
+      <workItem from="1488730570915" duration="20577000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="68542000" />
+    <option name="totallyTimeSpent" value="69127000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -923,7 +916,7 @@
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39958376" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39958376" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1367,48 +1360,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessorFactory.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="252" column="69" lean-forward="true" selection-start-line="252" selection-start-column="69" selection-end-line="252" selection-end-column="69" />
-          <folding>
-            <element signature="e#0#28998#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-            <element signature="e#10150#10203#0" expanded="false" />
-            <element signature="e#11760#11813#0" expanded="false" />
-            <element signature="e#16912#16965#0" expanded="false" />
-            <element signature="e#18399#18452#0" expanded="false" />
-            <element signature="e#20356#20409#0" expanded="false" />
-            <element signature="e#22436#22489#0" expanded="false" />
-            <marker date="1488767616000" expanded="true" signature="10396:10507" ph="select id fr... users" />
-            <marker date="1488767616000" expanded="false" signature="10628:11661" ph="INSERT INTO finalyearproject.users... " />
-            <marker date="1488767616000" expanded="true" signature="12007:12120" ph="select id fr... venues" />
-            <marker date="1488767616000" expanded="false" signature="12406:16785" ph="INSERT INTO finalyearproject.venues... " />
-            <marker date="1488767616000" expanded="true" signature="17161:17265" ph="select id fr... checkins" />
-            <marker date="1488767616000" expanded="false" signature="17386:18307" ph="INSERT INTO finalyearproject.checkins... " />
-            <marker date="1488767616000" expanded="true" signature="18875:18951" ph="select id fr... categories" />
-            <marker date="1488767616000" expanded="false" signature="19080:19714" ph="INSERT INTO finalyearproject.categories... " />
-            <marker date="1488767616000" expanded="false" signature="19838:20222" ph="INSERT INTO finalyearproject.venuecategories... " />
-            <marker date="1488767616000" expanded="true" signature="20902:20973" ph="select id fr... users" />
-            <marker date="1488767616000" expanded="false" signature="21110:21907" ph="INSERT INTO finalyearproject.users... " />
-            <marker date="1488767616000" expanded="false" signature="22038:22267" ph="INSERT INTO finalyearproject.with... " />
-            <marker date="1488767616000" expanded="true" signature="23001:23073" ph="select id fr... photos" />
-            <marker date="1488767616000" expanded="false" signature="23210:23527" ph="INSERT INTO finalyearproject.photos... " />
-            <marker date="1488767616000" expanded="false" signature="23663:23904" ph="INSERT INTO finalyearproject.checkinphotos... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/OtherEntities/FoursquareClient.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
@@ -1437,6 +1388,48 @@
           <caret line="129" column="42" lean-forward="true" selection-start-line="129" selection-start-column="42" selection-end-line="129" selection-end-column="42" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessorFactory.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="252" column="24" lean-forward="true" selection-start-line="252" selection-start-column="24" selection-end-line="252" selection-end-column="24" />
+          <folding>
+            <element signature="e#0#28885#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#10037#10090#0" expanded="false" />
+            <element signature="e#11647#11700#0" expanded="false" />
+            <element signature="e#16799#16852#0" expanded="false" />
+            <element signature="e#18286#18339#0" expanded="false" />
+            <element signature="e#20243#20296#0" expanded="false" />
+            <element signature="e#22323#22376#0" expanded="false" />
+            <marker date="1488768714000" expanded="true" signature="10283:10394" ph="select id fr... users" />
+            <marker date="1488768714000" expanded="false" signature="10515:11548" ph="INSERT INTO finalyearproject.users... " />
+            <marker date="1488768714000" expanded="true" signature="11894:12007" ph="select id fr... venues" />
+            <marker date="1488768714000" expanded="false" signature="12293:16672" ph="INSERT INTO finalyearproject.venues... " />
+            <marker date="1488768714000" expanded="true" signature="17048:17152" ph="select id fr... checkins" />
+            <marker date="1488768714000" expanded="false" signature="17273:18194" ph="INSERT INTO finalyearproject.checkins... " />
+            <marker date="1488768714000" expanded="true" signature="18762:18838" ph="select id fr... categories" />
+            <marker date="1488768714000" expanded="false" signature="18967:19601" ph="INSERT INTO finalyearproject.categories... " />
+            <marker date="1488768714000" expanded="false" signature="19725:20109" ph="INSERT INTO finalyearproject.venuecategories... " />
+            <marker date="1488768714000" expanded="true" signature="20789:20860" ph="select id fr... users" />
+            <marker date="1488768714000" expanded="false" signature="20997:21794" ph="INSERT INTO finalyearproject.users... " />
+            <marker date="1488768714000" expanded="false" signature="21925:22154" ph="INSERT INTO finalyearproject.with... " />
+            <marker date="1488768714000" expanded="true" signature="22888:22960" ph="select id fr... photos" />
+            <marker date="1488768714000" expanded="false" signature="23097:23414" ph="INSERT INTO finalyearproject.photos... " />
+            <marker date="1488768714000" expanded="false" signature="23550:23791" ph="INSERT INTO finalyearproject.checkinphotos... " />
           </folding>
         </state>
       </provider>
