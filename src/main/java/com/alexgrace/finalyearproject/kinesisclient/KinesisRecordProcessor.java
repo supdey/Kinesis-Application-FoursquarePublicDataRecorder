@@ -223,6 +223,7 @@ public class KinesisRecordProcessor implements IRecordProcessor {
                    response = resource.accept("application/json").get(ClientResponse.class);
 
                    if (response.getStatus() == 403) {
+                       LOG.info("Response 403: Switching to next Foursquare Client Details");
                        if ((foursquareClient.size() - 1) == clientIndex) {
                            clientIndex = 0;
                        } else {
@@ -232,36 +233,24 @@ public class KinesisRecordProcessor implements IRecordProcessor {
                        LOG.error("ShortID: " + shortId + ", Failed with HTTP Error code: " + response.getStatus());
                        break;
                    } else {
-                       LOG.error("ShortID: " + shortId + ", Failed with HTTP Error code: " + response.getStatus());
                        foursquaredata = response.getEntity(String.class);
-                       LOG.error(foursquaredata);
                        try {
                            fsqdata = mapper.readValue(foursquaredata, FoursquareCheckinEntity.class);
                        } catch (JsonGenerationException e) {
                            e.printStackTrace();
                            LOG.error("Error: Foursquare Entity Mapper Catch 1");
                        } catch (JsonMappingException e) {
-                           LOG.error(e);
                            e.printStackTrace();
                            LOG.error("Error: Foursquare Entity Mapper Catch 2");
                        } catch (IOException e) {
                            e.printStackTrace();
-                           LOG.error("Error: Foursquare Entity Mapper Catch 2");
+                           LOG.error("Error: Foursquare Entity Mapper Catch 3");
                        }
 
                        venueLat = fsqdata.getResponse().getCheckin().getVenue().getLocation().getLat();
                        venueLng = fsqdata.getResponse().getCheckin().getVenue().getLocation().getLng();
 
-
                        for (LocationFilter item : locationFilter) {
-                           LOG.error(venueLat);
-                           LOG.error(venueLng);
-
-                           LOG.error(item.getLat());
-                           LOG.error(item.getLng());
-                           LOG.error(item.getRadius());
-
-
                            locations.add(insideRadius(venueLat, venueLng, item.getLat(), item.getLng(), item.getRadius()));
                        }
 
