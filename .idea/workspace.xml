@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b9f992b1-0687-4171-b755-bf33b5f74445" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessor.java" afterPath="$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessor.java" />
-    </list>
+    <list default="true" id="b9f992b1-0687-4171-b755-bf33b5f74445" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -79,8 +77,8 @@
       <file leaf-file-name="KinesisRecordProcessor.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="390">
-              <caret line="234" column="73" lean-forward="true" selection-start-line="234" selection-start-column="73" selection-end-line="234" selection-end-column="73" />
+            <state relative-caret-position="-375">
+              <caret line="130" column="21" lean-forward="false" selection-start-line="130" selection-start-column="21" selection-end-line="130" selection-end-column="21" />
               <folding>
                 <element signature="e#0#29354#0" expanded="true" />
                 <element signature="imports" expanded="true" />
@@ -873,12 +871,12 @@
       <updated>1488226146666</updated>
       <workItem from="1488226152845" duration="39999000" />
       <workItem from="1488505710632" duration="8551000" />
-      <workItem from="1488730570915" duration="21499000" />
+      <workItem from="1488730570915" duration="21744000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70049000" />
+    <option name="totallyTimeSpent" value="70294000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1404,8 +1402,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/alexgrace/finalyearproject/kinesisclient/KinesisRecordProcessor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="234" column="73" lean-forward="true" selection-start-line="234" selection-start-column="73" selection-end-line="234" selection-end-column="73" />
+        <state relative-caret-position="-375">
+          <caret line="130" column="21" lean-forward="false" selection-start-line="130" selection-start-column="21" selection-end-line="130" selection-end-column="21" />
           <folding>
             <element signature="e#0#29354#0" expanded="true" />
             <element signature="imports" expanded="true" />
