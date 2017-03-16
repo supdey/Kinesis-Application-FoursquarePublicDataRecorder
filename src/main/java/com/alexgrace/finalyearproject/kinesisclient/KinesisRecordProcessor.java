@@ -273,7 +273,7 @@ public class KinesisRecordProcessor implements IRecordProcessor {
                            //---------------------------------------------------
                            // Users
                            //---------------------------------------------------
-                           statement.executeUpdate("REPLACE INTO finalyearproject.users " +
+                           statement.executeUpdate("INSERT IGNORE INTO finalyearproject.users " +
                                    "VALUES ('" + fsqdata.getResponse().getCheckin().getUser().getId() + "', '" +               // id
                                    screenname + "', '" +                                                                      // twitterhandle
                                    characterChecker(fsqdata.getResponse().getCheckin().getUser().getFirstName()) + "', '" +   // firstname
@@ -281,8 +281,11 @@ public class KinesisRecordProcessor implements IRecordProcessor {
                                    fsqdata.getResponse().getCheckin().getUser().getGender() + "', '" +                        // gender
                                    fsqdata.getResponse().getCheckin().getUser().getPhoto().getPrefix() + "', '" +             // photo_prefix
                                    fsqdata.getResponse().getCheckin().getUser().getPhoto().getSuffix() + "');");              // photo_suffix
+                           statement.executeUpdate("UPDATE finalyearproject.users " +
+                                   "SET twitterhandle  = '" + screenname +
+                                   "' WHERE id = '" + fsqdata.getResponse().getCheckin().getUser().getId() + "';");
 
-                           //---------------------------------------------------
+                                   //---------------------------------------------------
                            // Venues
                            //---------------------------------------------------
                            String joinedAddress = StringUtils.join(fsqdata.getResponse().getCheckin().getVenue().getLocation().getFormattedAddress(), "\n");

@@ -5,7 +5,7 @@
 package com.alexgrace.finalyearproject.kinesisclient.FoursquareEntities;
 
 public class Contact {
-    public long getPhone() {
+    public String getPhone() {
         return phone;
     }
     public String getFormattedPhone() {
@@ -27,7 +27,7 @@ public class Contact {
         return facebookName;
     }
 
-    private long phone;
+    private String phone;
     private String formattedPhone;
     private String twitter;
     private String instagram;
