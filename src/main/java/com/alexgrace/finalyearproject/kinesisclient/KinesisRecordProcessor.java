@@ -274,7 +274,7 @@ public class KinesisRecordProcessor implements IRecordProcessor {
                            // Users
                            //---------------------------------------------------
                            statement.executeUpdate("REPLACE INTO finalyearproject.users " +
-                                   "VALUES ('" + fsqdata.getResponse().getCheckin().getUser().getId() + "', " +               // id
+                                   "VALUES ('" + fsqdata.getResponse().getCheckin().getUser().getId() + "', '" +               // id
                                    screenname + "', '" +                                                                      // twitterhandle
                                    characterChecker(fsqdata.getResponse().getCheckin().getUser().getFirstName()) + "', '" +   // firstname
                                    characterChecker(fsqdata.getResponse().getCheckin().getUser().getLastName()) + "', '" +    // lastname
