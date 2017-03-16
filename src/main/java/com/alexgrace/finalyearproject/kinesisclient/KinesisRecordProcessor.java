@@ -340,7 +340,7 @@ public class KinesisRecordProcessor implements IRecordProcessor {
                                        item.getShortName() + "', '" +              // shortname
                                        item.getIcon().getPrefix() + "', '" +       // icon_prefix
                                        item.getIcon().getSuffix() + "');");        // icon_suffix
-                               resultSet = statement.executeQuery("select id from finalyearproject.venuecategories where venue = '" + fsqdata.getResponse().getCheckin().getVenue().getId() + "' AND category = '" + item.getId() + "';");
+                               resultSet = statement.executeQuery("select * from finalyearproject.venuecategories where venue = '" + fsqdata.getResponse().getCheckin().getVenue().getId() + "' AND category = '" + item.getId() + "';");
                                if (!resultSet.next()) {
                                    statement.executeUpdate("INSERT INTO finalyearproject.venuecategories " +
                                            "VALUES ('" + fsqdata.getResponse().getCheckin().getVenue().getId() + "', '" +     // venue
