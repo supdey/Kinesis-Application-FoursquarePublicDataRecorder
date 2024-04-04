@@ -12,18 +12,18 @@ See Project Here: [City Analysis](www.city-analysis.com)
 ***
 
 ## Description:
-- Abc
-- 123
+
 
 ***
 
 ## Getting Started:
-- Abc
-- 123
 
-***
 
-####For further information or feedback please contact me!
-**[alex@grace6.plus.com](mailto:alex@grace6.plus.com)**
+Permission to use the code files are licensed under a Creative Commons Attribution 4.0 International License., to be accompanied with the following article citation:
 
-**[HireAlexGrace.com](HireAlexGrace.com)**
+Suparna De, Usamah Jassat, Alex Grace, Wei Wang, Klaus Moessner, ‘Mining Composite Spatio-Temporal Lifestyle Patterns from Geotagged Social Data’, Proc. IEEE International Conference on Internet of Things (iThings) and IEEE Green Computing and Communications (GreenCom) and IEEE Cyber, Physical and Social Computing (CPSCom) and IEEE Smart Data (SmartData) and IEEE Congress on Cybermatics (Cybermatics), 2022.
+
+####For further information or feedback please contact:
+**[s.de@surrey.ac.uk](mailto:s.de@surrey.ac.uk)**
+
+
